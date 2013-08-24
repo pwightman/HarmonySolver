@@ -37,9 +37,9 @@ HSChord *chord = [[HSChord G] flat:7];
 Calling `halfSteps` returns the half-step interval from the root. (0 - 23)
 
 ```objc
-NSArray *tones = [[HSChord G] halfSteps];         // @[@0, @4, @7]
-NSArray *tones = [[[HSChord G] seven] halfSteps]; // @[@0, @4, @7, @10]
-NSArray *tones = [[[HSChord G] nine] halfSteps];  // @[@0, @4, @7, @14]
+NSArray *tones = [[HSChord G] halfSteps];         // @[ @0, @4, @7 ]
+NSArray *tones = [[[HSChord G] seven] halfSteps]; // @[ @0, @4, @7, @10 ]
+NSArray *tones = [[[HSChord G] nine] halfSteps];  // @[ @0, @4, @7, @14 ]
 ```
 
 The `root` property returns an integer between 0 - 11 where 0 is C, 1 is C#, etc. These values correspond to C0 through B0 as defined by `HSNote`.
@@ -157,16 +157,16 @@ NSArray *solution = [solver nextSolution];
 HSKey allows you to express chords in terms of ii-V-I (two-five-one) instead of D-G-C. Basic semantics of the key are applied as well, such as the two chord being minor.
 
 ```objc
-HSKey *key = [HSKey keyWithType:HSKeyTypeC];
-HSChord *chord = [key twoChord];    // returns [[HSChord d] minor];
-HSChord *chord = [key fiveChord];   // returns [HSChord g];     
-HSChord *chord = [key oneChord];    // returns [HSChord c];
+HSKey *key = [HSKey keyWithType:HSKeyC];
+HSChord *chord = [key twoChord];    // returns [[HSChord D] minor];
+HSChord *chord = [key fiveChord];   // returns [HSChord G];     
+HSChord *chord = [key oneChord];    // returns [HSChord C];
 ```
 
 This could be extended to advanced chord types as well.
 
 ```objc
-HSKey *key = [HSKey keyWithType:HSKeyTypeCMinor];
+HSKey *key = [HSKey keyWithType:HSKeyCMinor];
 ```
 
 ## TODO
