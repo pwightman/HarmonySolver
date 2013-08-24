@@ -1,4 +1,4 @@
-# Four-Part Harmony Solver in Objective-C
+## Four-Part Harmony Solver in Objective-C
 
 ![](http://d.pr/i/gAmK/gpO0xwg6+)
 
@@ -101,7 +101,7 @@ enumerator.sopranoNote = @37;
 
 ---
 
-**NOTE**: Only parts of the rest of this API have been implemented and is definitely subject to change. Feedback welcome.
+**NOTE**: Only parts of the rest of this API have been implemented and are definitely subject to change. Feedback welcome.
 
 ---
 
