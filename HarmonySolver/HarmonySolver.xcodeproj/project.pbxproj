@@ -1,0 +1,566 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		5F7C1E5A17BFF36C002921DC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F7C1E5917BFF36C002921DC /* Foundation.framework */; };
+		5F7C1E5C17BFF36C002921DC /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F7C1E5B17BFF36C002921DC /* CoreGraphics.framework */; };
+		5F7C1E5E17BFF36C002921DC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F7C1E5D17BFF36C002921DC /* UIKit.framework */; };
+		5F7C1E6417BFF36C002921DC /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5F7C1E6217BFF36C002921DC /* InfoPlist.strings */; };
+		5F7C1E6617BFF36C002921DC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F7C1E6517BFF36C002921DC /* main.m */; };
+		5F7C1E6A17BFF36C002921DC /* HSAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F7C1E6917BFF36C002921DC /* HSAppDelegate.m */; };
+		5F7C1E6D17BFF36C002921DC /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5F7C1E6B17BFF36C002921DC /* Main_iPhone.storyboard */; };
+		5F7C1E7017BFF36C002921DC /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5F7C1E6E17BFF36C002921DC /* Main_iPad.storyboard */; };
+		5F7C1E7317BFF36C002921DC /* HSViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F7C1E7217BFF36C002921DC /* HSViewController.m */; };
+		5F7C1E7517BFF36C002921DC /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5F7C1E7417BFF36C002921DC /* Images.xcassets */; };
+		5F7C1E7C17BFF36C002921DC /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F7C1E7B17BFF36C002921DC /* XCTest.framework */; };
+		5F7C1E7D17BFF36C002921DC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F7C1E5917BFF36C002921DC /* Foundation.framework */; };
+		5F7C1E7E17BFF36C002921DC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F7C1E5D17BFF36C002921DC /* UIKit.framework */; };
+		5F7C1E8617BFF36C002921DC /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5F7C1E8417BFF36C002921DC /* InfoPlist.strings */; };
+		5F7C1E9417BFF39A002921DC /* HSNote.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F7C1E9317BFF39A002921DC /* HSNote.m */; };
+		5F7C1E9617C00531002921DC /* HSNoteTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F7C1E9517C00531002921DC /* HSNoteTests.m */; };
+		5F7C1E9917C05F02002921DC /* HSChord.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F7C1E9817C05F02002921DC /* HSChord.m */; };
+		5F7C1E9B17C06B63002921DC /* HSChordTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F7C1E9A17C06B63002921DC /* HSChordTests.m */; };
+		5F7C1E9F17C07623002921DC /* NSArray+BlocksKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F7C1E9E17C07623002921DC /* NSArray+BlocksKit.m */; };
+		5F7C1EA217C173A6002921DC /* HSFourPartChord.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F7C1EA117C173A6002921DC /* HSFourPartChord.m */; };
+		5F7C1EA417C17509002921DC /* HSFourPartChordTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F7C1EA317C17509002921DC /* HSFourPartChordTests.m */; };
+		5F7C1EA717C2676A002921DC /* HSFourPartChordEnumerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F7C1EA617C2676A002921DC /* HSFourPartChordEnumerator.m */; };
+		5F7C1EA917C26901002921DC /* HSFourPartChordEnumeratorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F7C1EA817C26901002921DC /* HSFourPartChordEnumeratorTests.m */; };
+		5FC3B5EB17C5C898000FC7C3 /* HSFourPartSolver.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FC3B5EA17C5C898000FC7C3 /* HSFourPartSolver.m */; };
+		5FC3B5EE17C5CB51000FC7C3 /* HSChordConstraints.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FC3B5ED17C5CB51000FC7C3 /* HSChordConstraints.m */; };
+		5FC3B5F017C5CC1E000FC7C3 /* HSChordConstraintsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FC3B5EF17C5CC1E000FC7C3 /* HSChordConstraintsTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		5F7C1E7F17BFF36C002921DC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5F7C1E4E17BFF36C002921DC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5F7C1E5517BFF36C002921DC;
+			remoteInfo = HarmonySolver;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		5F7C1E5617BFF36C002921DC /* HarmonySolver.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HarmonySolver.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5F7C1E5917BFF36C002921DC /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		5F7C1E5B17BFF36C002921DC /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		5F7C1E5D17BFF36C002921DC /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		5F7C1E6117BFF36C002921DC /* HarmonySolver-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "HarmonySolver-Info.plist"; sourceTree = "<group>"; };
+		5F7C1E6317BFF36C002921DC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		5F7C1E6517BFF36C002921DC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		5F7C1E6717BFF36C002921DC /* HarmonySolver-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HarmonySolver-Prefix.pch"; sourceTree = "<group>"; };
+		5F7C1E6817BFF36C002921DC /* HSAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HSAppDelegate.h; sourceTree = "<group>"; };
+		5F7C1E6917BFF36C002921DC /* HSAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HSAppDelegate.m; sourceTree = "<group>"; };
+		5F7C1E6C17BFF36C002921DC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
+		5F7C1E6F17BFF36C002921DC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
+		5F7C1E7117BFF36C002921DC /* HSViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HSViewController.h; sourceTree = "<group>"; };
+		5F7C1E7217BFF36C002921DC /* HSViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HSViewController.m; sourceTree = "<group>"; };
+		5F7C1E7417BFF36C002921DC /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		5F7C1E7A17BFF36C002921DC /* HarmonySolverTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HarmonySolverTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5F7C1E7B17BFF36C002921DC /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		5F7C1E8317BFF36C002921DC /* HarmonySolverTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "HarmonySolverTests-Info.plist"; sourceTree = "<group>"; };
+		5F7C1E8517BFF36C002921DC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		5F7C1E9217BFF39A002921DC /* HSNote.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HSNote.h; path = Models/HSNote.h; sourceTree = "<group>"; };
+		5F7C1E9317BFF39A002921DC /* HSNote.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HSNote.m; path = Models/HSNote.m; sourceTree = "<group>"; };
+		5F7C1E9517C00531002921DC /* HSNoteTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HSNoteTests.m; sourceTree = "<group>"; };
+		5F7C1E9717C05F02002921DC /* HSChord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HSChord.h; path = Models/HSChord.h; sourceTree = "<group>"; };
+		5F7C1E9817C05F02002921DC /* HSChord.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HSChord.m; path = Models/HSChord.m; sourceTree = "<group>"; };
+		5F7C1E9A17C06B63002921DC /* HSChordTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HSChordTests.m; sourceTree = "<group>"; };
+		5F7C1E9D17C07623002921DC /* NSArray+BlocksKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSArray+BlocksKit.h"; path = "Models/Categories/NSArray+BlocksKit.h"; sourceTree = "<group>"; };
+		5F7C1E9E17C07623002921DC /* NSArray+BlocksKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSArray+BlocksKit.m"; path = "Models/Categories/NSArray+BlocksKit.m"; sourceTree = "<group>"; };
+		5F7C1EA017C173A6002921DC /* HSFourPartChord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HSFourPartChord.h; path = Models/HSFourPartChord.h; sourceTree = "<group>"; };
+		5F7C1EA117C173A6002921DC /* HSFourPartChord.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HSFourPartChord.m; path = Models/HSFourPartChord.m; sourceTree = "<group>"; };
+		5F7C1EA317C17509002921DC /* HSFourPartChordTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HSFourPartChordTests.m; sourceTree = "<group>"; };
+		5F7C1EA517C2676A002921DC /* HSFourPartChordEnumerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HSFourPartChordEnumerator.h; path = Models/HSFourPartChordEnumerator.h; sourceTree = "<group>"; };
+		5F7C1EA617C2676A002921DC /* HSFourPartChordEnumerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HSFourPartChordEnumerator.m; path = Models/HSFourPartChordEnumerator.m; sourceTree = "<group>"; };
+		5F7C1EA817C26901002921DC /* HSFourPartChordEnumeratorTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HSFourPartChordEnumeratorTests.m; sourceTree = "<group>"; };
+		5FC3B5E917C5C898000FC7C3 /* HSFourPartSolver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HSFourPartSolver.h; path = Models/HSFourPartSolver.h; sourceTree = "<group>"; };
+		5FC3B5EA17C5C898000FC7C3 /* HSFourPartSolver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HSFourPartSolver.m; path = Models/HSFourPartSolver.m; sourceTree = "<group>"; };
+		5FC3B5EC17C5CB51000FC7C3 /* HSChordConstraints.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HSChordConstraints.h; path = Models/HSChordConstraints.h; sourceTree = "<group>"; };
+		5FC3B5ED17C5CB51000FC7C3 /* HSChordConstraints.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HSChordConstraints.m; path = Models/HSChordConstraints.m; sourceTree = "<group>"; };
+		5FC3B5EF17C5CC1E000FC7C3 /* HSChordConstraintsTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HSChordConstraintsTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		5F7C1E5317BFF36C002921DC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5F7C1E5C17BFF36C002921DC /* CoreGraphics.framework in Frameworks */,
+				5F7C1E5E17BFF36C002921DC /* UIKit.framework in Frameworks */,
+				5F7C1E5A17BFF36C002921DC /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5F7C1E7717BFF36C002921DC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5F7C1E7C17BFF36C002921DC /* XCTest.framework in Frameworks */,
+				5F7C1E7E17BFF36C002921DC /* UIKit.framework in Frameworks */,
+				5F7C1E7D17BFF36C002921DC /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		5F7C1E4D17BFF36C002921DC = {
+			isa = PBXGroup;
+			children = (
+				5F7C1E5F17BFF36C002921DC /* HarmonySolver */,
+				5F7C1E8117BFF36C002921DC /* HarmonySolverTests */,
+				5F7C1E5817BFF36C002921DC /* Frameworks */,
+				5F7C1E5717BFF36C002921DC /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		5F7C1E5717BFF36C002921DC /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5F7C1E5617BFF36C002921DC /* HarmonySolver.app */,
+				5F7C1E7A17BFF36C002921DC /* HarmonySolverTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		5F7C1E5817BFF36C002921DC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5F7C1E5917BFF36C002921DC /* Foundation.framework */,
+				5F7C1E5B17BFF36C002921DC /* CoreGraphics.framework */,
+				5F7C1E5D17BFF36C002921DC /* UIKit.framework */,
+				5F7C1E7B17BFF36C002921DC /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		5F7C1E5F17BFF36C002921DC /* HarmonySolver */ = {
+			isa = PBXGroup;
+			children = (
+				5F7C1E9117BFF380002921DC /* Models */,
+				5F7C1E6817BFF36C002921DC /* HSAppDelegate.h */,
+				5F7C1E6917BFF36C002921DC /* HSAppDelegate.m */,
+				5F7C1E6B17BFF36C002921DC /* Main_iPhone.storyboard */,
+				5F7C1E6E17BFF36C002921DC /* Main_iPad.storyboard */,
+				5F7C1E7117BFF36C002921DC /* HSViewController.h */,
+				5F7C1E7217BFF36C002921DC /* HSViewController.m */,
+				5F7C1E7417BFF36C002921DC /* Images.xcassets */,
+				5F7C1E6017BFF36C002921DC /* Supporting Files */,
+			);
+			path = HarmonySolver;
+			sourceTree = "<group>";
+		};
+		5F7C1E6017BFF36C002921DC /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				5F7C1E6117BFF36C002921DC /* HarmonySolver-Info.plist */,
+				5F7C1E6217BFF36C002921DC /* InfoPlist.strings */,
+				5F7C1E6517BFF36C002921DC /* main.m */,
+				5F7C1E6717BFF36C002921DC /* HarmonySolver-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		5F7C1E8117BFF36C002921DC /* HarmonySolverTests */ = {
+			isa = PBXGroup;
+			children = (
+				5F7C1E9517C00531002921DC /* HSNoteTests.m */,
+				5F7C1E9A17C06B63002921DC /* HSChordTests.m */,
+				5F7C1EA317C17509002921DC /* HSFourPartChordTests.m */,
+				5F7C1EA817C26901002921DC /* HSFourPartChordEnumeratorTests.m */,
+				5FC3B5EF17C5CC1E000FC7C3 /* HSChordConstraintsTests.m */,
+				5F7C1E8217BFF36C002921DC /* Supporting Files */,
+			);
+			path = HarmonySolverTests;
+			sourceTree = "<group>";
+		};
+		5F7C1E8217BFF36C002921DC /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				5F7C1E8317BFF36C002921DC /* HarmonySolverTests-Info.plist */,
+				5F7C1E8417BFF36C002921DC /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		5F7C1E9117BFF380002921DC /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				5F7C1E9C17C075F9002921DC /* Categories */,
+				5F7C1E9217BFF39A002921DC /* HSNote.h */,
+				5F7C1E9317BFF39A002921DC /* HSNote.m */,
+				5F7C1E9717C05F02002921DC /* HSChord.h */,
+				5F7C1E9817C05F02002921DC /* HSChord.m */,
+				5F7C1EA017C173A6002921DC /* HSFourPartChord.h */,
+				5F7C1EA117C173A6002921DC /* HSFourPartChord.m */,
+				5F7C1EA517C2676A002921DC /* HSFourPartChordEnumerator.h */,
+				5F7C1EA617C2676A002921DC /* HSFourPartChordEnumerator.m */,
+				5FC3B5E917C5C898000FC7C3 /* HSFourPartSolver.h */,
+				5FC3B5EA17C5C898000FC7C3 /* HSFourPartSolver.m */,
+				5FC3B5EC17C5CB51000FC7C3 /* HSChordConstraints.h */,
+				5FC3B5ED17C5CB51000FC7C3 /* HSChordConstraints.m */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		5F7C1E9C17C075F9002921DC /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				5F7C1E9D17C07623002921DC /* NSArray+BlocksKit.h */,
+				5F7C1E9E17C07623002921DC /* NSArray+BlocksKit.m */,
+			);
+			name = Categories;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		5F7C1E5517BFF36C002921DC /* HarmonySolver */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5F7C1E8B17BFF36C002921DC /* Build configuration list for PBXNativeTarget "HarmonySolver" */;
+			buildPhases = (
+				5F7C1E5217BFF36C002921DC /* Sources */,
+				5F7C1E5317BFF36C002921DC /* Frameworks */,
+				5F7C1E5417BFF36C002921DC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = HarmonySolver;
+			productName = HarmonySolver;
+			productReference = 5F7C1E5617BFF36C002921DC /* HarmonySolver.app */;
+			productType = "com.apple.product-type.application";
+		};
+		5F7C1E7917BFF36C002921DC /* HarmonySolverTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5F7C1E8E17BFF36C002921DC /* Build configuration list for PBXNativeTarget "HarmonySolverTests" */;
+			buildPhases = (
+				5F7C1E7617BFF36C002921DC /* Sources */,
+				5F7C1E7717BFF36C002921DC /* Frameworks */,
+				5F7C1E7817BFF36C002921DC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5F7C1E8017BFF36C002921DC /* PBXTargetDependency */,
+			);
+			name = HarmonySolverTests;
+			productName = HarmonySolverTests;
+			productReference = 5F7C1E7A17BFF36C002921DC /* HarmonySolverTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		5F7C1E4E17BFF36C002921DC /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = HS;
+				LastUpgradeCheck = 0500;
+				ORGANIZATIONNAME = "Alora Studios";
+				TargetAttributes = {
+					5F7C1E7917BFF36C002921DC = {
+						TestTargetID = 5F7C1E5517BFF36C002921DC;
+					};
+				};
+			};
+			buildConfigurationList = 5F7C1E5117BFF36C002921DC /* Build configuration list for PBXProject "HarmonySolver" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 5F7C1E4D17BFF36C002921DC;
+			productRefGroup = 5F7C1E5717BFF36C002921DC /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				5F7C1E5517BFF36C002921DC /* HarmonySolver */,
+				5F7C1E7917BFF36C002921DC /* HarmonySolverTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		5F7C1E5417BFF36C002921DC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5F7C1E7017BFF36C002921DC /* Main_iPad.storyboard in Resources */,
+				5F7C1E7517BFF36C002921DC /* Images.xcassets in Resources */,
+				5F7C1E6D17BFF36C002921DC /* Main_iPhone.storyboard in Resources */,
+				5F7C1E6417BFF36C002921DC /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5F7C1E7817BFF36C002921DC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5F7C1E8617BFF36C002921DC /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		5F7C1E5217BFF36C002921DC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5F7C1E9417BFF39A002921DC /* HSNote.m in Sources */,
+				5F7C1E7317BFF36C002921DC /* HSViewController.m in Sources */,
+				5FC3B5EB17C5C898000FC7C3 /* HSFourPartSolver.m in Sources */,
+				5F7C1E9917C05F02002921DC /* HSChord.m in Sources */,
+				5FC3B5EE17C5CB51000FC7C3 /* HSChordConstraints.m in Sources */,
+				5F7C1E9F17C07623002921DC /* NSArray+BlocksKit.m in Sources */,
+				5F7C1E6617BFF36C002921DC /* main.m in Sources */,
+				5F7C1EA217C173A6002921DC /* HSFourPartChord.m in Sources */,
+				5F7C1EA717C2676A002921DC /* HSFourPartChordEnumerator.m in Sources */,
+				5F7C1E6A17BFF36C002921DC /* HSAppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5F7C1E7617BFF36C002921DC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5F7C1EA917C26901002921DC /* HSFourPartChordEnumeratorTests.m in Sources */,
+				5FC3B5F017C5CC1E000FC7C3 /* HSChordConstraintsTests.m in Sources */,
+				5F7C1EA417C17509002921DC /* HSFourPartChordTests.m in Sources */,
+				5F7C1E9617C00531002921DC /* HSNoteTests.m in Sources */,
+				5F7C1E9B17C06B63002921DC /* HSChordTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		5F7C1E8017BFF36C002921DC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5F7C1E5517BFF36C002921DC /* HarmonySolver */;
+			targetProxy = 5F7C1E7F17BFF36C002921DC /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		5F7C1E6217BFF36C002921DC /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5F7C1E6317BFF36C002921DC /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		5F7C1E6B17BFF36C002921DC /* Main_iPhone.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5F7C1E6C17BFF36C002921DC /* Base */,
+			);
+			name = Main_iPhone.storyboard;
+			sourceTree = "<group>";
+		};
+		5F7C1E6E17BFF36C002921DC /* Main_iPad.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5F7C1E6F17BFF36C002921DC /* Base */,
+			);
+			name = Main_iPad.storyboard;
+			sourceTree = "<group>";
+		};
+		5F7C1E8417BFF36C002921DC /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5F7C1E8517BFF36C002921DC /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		5F7C1E8917BFF36C002921DC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		5F7C1E8A17BFF36C002921DC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		5F7C1E8C17BFF36C002921DC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer: ROBERT WIGHTMAN (6M3BSZ6J39)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "HarmonySolver/HarmonySolver-Prefix.pch";
+				INFOPLIST_FILE = "HarmonySolver/HarmonySolver-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		5F7C1E8D17BFF36C002921DC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer: ROBERT WIGHTMAN (6M3BSZ6J39)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "HarmonySolver/HarmonySolver-Prefix.pch";
+				INFOPLIST_FILE = "HarmonySolver/HarmonySolver-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		5F7C1E8F17BFF36C002921DC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/HarmonySolver.app/HarmonySolver";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "HarmonySolver/HarmonySolver-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "HarmonySolverTests/HarmonySolverTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		5F7C1E9017BFF36C002921DC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/HarmonySolver.app/HarmonySolver";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "HarmonySolver/HarmonySolver-Prefix.pch";
+				INFOPLIST_FILE = "HarmonySolverTests/HarmonySolverTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		5F7C1E5117BFF36C002921DC /* Build configuration list for PBXProject "HarmonySolver" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5F7C1E8917BFF36C002921DC /* Debug */,
+				5F7C1E8A17BFF36C002921DC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5F7C1E8B17BFF36C002921DC /* Build configuration list for PBXNativeTarget "HarmonySolver" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5F7C1E8C17BFF36C002921DC /* Debug */,
+				5F7C1E8D17BFF36C002921DC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5F7C1E8E17BFF36C002921DC /* Build configuration list for PBXNativeTarget "HarmonySolverTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5F7C1E8F17BFF36C002921DC /* Debug */,
+				5F7C1E9017BFF36C002921DC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 5F7C1E4E17BFF36C002921DC /* Project object */;
+}
