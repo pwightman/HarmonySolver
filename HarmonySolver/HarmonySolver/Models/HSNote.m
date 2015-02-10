@@ -72,7 +72,7 @@
 }
 
 - (NSString*) description {
-	return [NSString stringWithFormat:@"%@%i", [self stringFromType], self.octave];
+	return [NSString stringWithFormat:@"%@%@", [self stringFromType], @(self.octave)];
 	//return [NSString stringWithFormat:@"Type: %@ Octave: %i", [self typeToString:[self type]], [self octave]];
 }
 

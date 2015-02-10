@@ -106,6 +106,7 @@
     NSInteger voiceMax   = range.location + range.length;
     
     while (!done) {
+        NSLog(@"Pre-adjustment: %@", _halfSteps);
         NSArray *adjustedHalfSteps = [_halfSteps map:^id(id obj) {
             
             // Find the C below the range, to start at some known place.
@@ -117,6 +118,8 @@
             
             return @(adjustedScaleTone);
         }];
+
+        NSLog(@"Post-adjustment: %@", adjustedHalfSteps);
         
         for (NSNumber *absoluteNumber in adjustedHalfSteps) {
             NSInteger absoluteValue = [absoluteNumber integerValue];
@@ -134,6 +137,8 @@
         
         iterations++;
     }
+
+    NSLog(@"Voice array: %@", voiceArray);
     
     return voiceArray;
 }

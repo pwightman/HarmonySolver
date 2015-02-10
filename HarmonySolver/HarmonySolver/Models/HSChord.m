@@ -157,7 +157,7 @@
         case 13: halfStep = 21; break;
         case 14: halfStep = 23; break;
         default:
-            NSAssert(NO, @"HSChord hafStepForScale: %i scaleStep not supported", scaleStep);
+            NSAssert(NO, @"HSChord hafStepForScale: %@ scaleStep not supported", @(scaleStep));
     }
     
     return halfStep;

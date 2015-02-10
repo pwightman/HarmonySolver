@@ -57,7 +57,7 @@
 - (NSString *)description {
     NSArray *result = [[self array] map:^id(id obj) {
         HSNote *note = [HSNote noteWithAbsoluteValue:[obj integerValue]];
-        return [NSString stringWithFormat:@"%@%i", [note stringFromType], note.octave];
+        return [NSString stringWithFormat:@"%@%@", [note stringFromType], @(note.octave)];
     }];
     
     return [result componentsJoinedByString:@" "];
