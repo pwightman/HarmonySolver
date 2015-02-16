@@ -1,4 +1,6 @@
-## Four-Part Harmony Solver in Objective-C
+## Four-Part Harmony Solver in Objective-C and Swift
+
+**Note**: The Swift version is more functional than the Objective-C version but is not yet documented.
 
 ![](http://d.pr/i/gAmK/gpO0xwg6+)
 
