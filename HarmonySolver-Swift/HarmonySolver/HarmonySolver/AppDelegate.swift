@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -15,7 +16,35 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        // Override point for customization after application launch.
+
+        println("Starting")
+
+        let key = Key(C)
+
+        let enumerators = [
+            key.two,
+            key.five,
+            key.one,
+        ].map { ChordEnumerator(chord: $0) }
+
+        var solverGenerator = HarmonySolver(
+            enumerators: enumerators,
+            chordConstraint:
+                  noVoiceCrossingConstraint
+                & completeChordConstraint
+                & noMoreThanOneOctaveBetweenVoices,
+            //                & allowRootNotes([0, 7]), // This causes no matches to be found, Bug? :-/
+            adjacentConstraint:
+            //                  noParallelFifthsConstraint // This is buggy
+                smallJumpsConstraint(12)
+        ).generate()
+
+        while let solution = solverGenerator.next() {
+            let serializer = LilyPondSerializer(chords: solution)
+            println(serializer.toString())
+        }
+        
+        println("Done")
         return true
     }
 

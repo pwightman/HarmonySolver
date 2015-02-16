@@ -7,13 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5F5832001A8FA2F7004E2608 /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F5831FF1A8FA2F7004E2608 /* Note.swift */; };
+		5F5832021A8FA301004E2608 /* Chord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F5832011A8FA301004E2608 /* Chord.swift */; };
+		5F5832041A8FA309004E2608 /* FourPartChord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F5832031A8FA309004E2608 /* FourPartChord.swift */; };
+		5F5832061A8FA31D004E2608 /* ChordEnumerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F5832051A8FA31D004E2608 /* ChordEnumerator.swift */; };
+		5F5832081A8FA329004E2608 /* HarmonySolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F5832071A8FA329004E2608 /* HarmonySolver.swift */; };
+		5F58320A1A8FA3B7004E2608 /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F5832091A8FA3B7004E2608 /* Util.swift */; };
+		5F58320C1A8FAA2D004E2608 /* LilyPondTemplate.ly in Resources */ = {isa = PBXBuildFile; fileRef = 5F58320B1A8FAA2D004E2608 /* LilyPondTemplate.ly */; };
+		5F7EC3971A901A08006CDBF2 /* LilyPondSerializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F7EC3961A901A08006CDBF2 /* LilyPondSerializer.swift */; };
+		5F7EC39A1A901A84006CDBF2 /* Key.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F7EC3991A901A84006CDBF2 /* Key.swift */; };
 		5FDA68591A89BC760053891B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FDA68581A89BC760053891B /* AppDelegate.swift */; };
 		5FDA685B1A89BC760053891B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FDA685A1A89BC760053891B /* ViewController.swift */; };
 		5FDA685E1A89BC760053891B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5FDA685C1A89BC760053891B /* Main.storyboard */; };
 		5FDA68601A89BC760053891B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5FDA685F1A89BC760053891B /* Images.xcassets */; };
 		5FDA68631A89BC760053891B /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5FDA68611A89BC760053891B /* LaunchScreen.xib */; };
 		5FDA686F1A89BC770053891B /* HarmonySolverTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FDA686E1A89BC770053891B /* HarmonySolverTests.swift */; };
-		5FDA68791A89BCAD0053891B /* Chord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FDA68781A89BCAD0053891B /* Chord.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,7 +35,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5F5831FF1A8FA2F7004E2608 /* Note.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
+		5F5832011A8FA301004E2608 /* Chord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Chord.swift; sourceTree = "<group>"; };
+		5F5832031A8FA309004E2608 /* FourPartChord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FourPartChord.swift; sourceTree = "<group>"; };
+		5F5832051A8FA31D004E2608 /* ChordEnumerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChordEnumerator.swift; sourceTree = "<group>"; };
+		5F5832071A8FA329004E2608 /* HarmonySolver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HarmonySolver.swift; sourceTree = "<group>"; };
+		5F5832091A8FA3B7004E2608 /* Util.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
+		5F58320B1A8FAA2D004E2608 /* LilyPondTemplate.ly */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LilyPondTemplate.ly; sourceTree = "<group>"; };
 		5F7403751A89DDC600A839D3 /* Playground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = Playground.playground; path = Models/Playground.playground; sourceTree = "<group>"; };
+		5F7EC3961A901A08006CDBF2 /* LilyPondSerializer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LilyPondSerializer.swift; sourceTree = "<group>"; };
+		5F7EC3991A901A84006CDBF2 /* Key.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Key.swift; sourceTree = "<group>"; };
 		5FDA68531A89BC760053891B /* HarmonySolver.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HarmonySolver.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FDA68571A89BC760053891B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5FDA68581A89BC760053891B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -38,7 +55,6 @@
 		5FDA68681A89BC770053891B /* HarmonySolverTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HarmonySolverTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FDA686D1A89BC770053891B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5FDA686E1A89BC770053891B /* HarmonySolverTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HarmonySolverTests.swift; sourceTree = "<group>"; };
-		5FDA68781A89BCAD0053891B /* Chord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Chord.swift; path = Models/Chord.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +75,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5F7EC3981A901A0E006CDBF2 /* LilyPond Serializer */ = {
+			isa = PBXGroup;
+			children = (
+				5F7EC3961A901A08006CDBF2 /* LilyPondSerializer.swift */,
+				5F58320B1A8FAA2D004E2608 /* LilyPondTemplate.ly */,
+			);
+			name = "LilyPond Serializer";
+			sourceTree = "<group>";
+		};
 		5FDA684A1A89BC760053891B = {
 			isa = PBXGroup;
 			children = (
@@ -82,11 +107,18 @@
 			children = (
 				5FDA68581A89BC760053891B /* AppDelegate.swift */,
 				5FDA685A1A89BC760053891B /* ViewController.swift */,
+				5F5831FF1A8FA2F7004E2608 /* Note.swift */,
+				5F5832011A8FA301004E2608 /* Chord.swift */,
+				5F5832031A8FA309004E2608 /* FourPartChord.swift */,
+				5F5832051A8FA31D004E2608 /* ChordEnumerator.swift */,
+				5F5832071A8FA329004E2608 /* HarmonySolver.swift */,
+				5F7EC3991A901A84006CDBF2 /* Key.swift */,
+				5F5832091A8FA3B7004E2608 /* Util.swift */,
+				5F7EC3981A901A0E006CDBF2 /* LilyPond Serializer */,
 				5FDA685C1A89BC760053891B /* Main.storyboard */,
 				5FDA685F1A89BC760053891B /* Images.xcassets */,
 				5FDA68611A89BC760053891B /* LaunchScreen.xib */,
 				5FDA68561A89BC760053891B /* Supporting Files */,
-				5FDA68781A89BCAD0053891B /* Chord.swift */,
 				5F7403751A89DDC600A839D3 /* Playground.playground */,
 			);
 			path = HarmonySolver;
@@ -198,6 +230,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5FDA685E1A89BC760053891B /* Main.storyboard in Resources */,
+				5F58320C1A8FAA2D004E2608 /* LilyPondTemplate.ly in Resources */,
 				5FDA68631A89BC760053891B /* LaunchScreen.xib in Resources */,
 				5FDA68601A89BC760053891B /* Images.xcassets in Resources */,
 			);
@@ -217,9 +250,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5FDA68791A89BCAD0053891B /* Chord.swift in Sources */,
+				5F5832061A8FA31D004E2608 /* ChordEnumerator.swift in Sources */,
+				5F7EC39A1A901A84006CDBF2 /* Key.swift in Sources */,
+				5F5832021A8FA301004E2608 /* Chord.swift in Sources */,
 				5FDA685B1A89BC760053891B /* ViewController.swift in Sources */,
+				5F7EC3971A901A08006CDBF2 /* LilyPondSerializer.swift in Sources */,
+				5F58320A1A8FA3B7004E2608 /* Util.swift in Sources */,
+				5F5832041A8FA309004E2608 /* FourPartChord.swift in Sources */,
 				5FDA68591A89BC760053891B /* AppDelegate.swift in Sources */,
+				5F5832001A8FA2F7004E2608 /* Note.swift in Sources */,
+				5F5832081A8FA329004E2608 /* HarmonySolver.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

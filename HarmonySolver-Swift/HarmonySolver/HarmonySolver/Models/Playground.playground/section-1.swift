@@ -239,44 +239,59 @@ func all<T>(array: [T], block: T -> Bool) -> Bool {
     return true
 }
 
-struct PermutationGenerator<T> : GeneratorType {
-    let arrays: [[T]]
-    var indexes: [Int]
-    var done = false
+func rest<T>(array: [T]) -> [T] {
+    var new: [T] = []
+    for i in 1..<array.count {
+        new.append(array[i])
+    }
+    return new
+}
 
-    init(arrays: [[T]]) {
-        self.arrays = arrays
-        self.indexes = [Int]()
-        for i in 0..<arrays.count {
-            self.indexes.append(0)
+struct PermutationGenerator<T> : GeneratorType {
+    private let sequences: [SequenceOf<T>]
+    private var generator: GeneratorOf<[T]>?
+
+    init(sequences: [SequenceOf<T>]) {
+        self.sequences = sequences
+        switch sequences.count {
+        case 0: self.generator = nil
+        case 1:
+            var generator = sequences.first?.generate()
+            self.generator = GeneratorOf {
+                if let el = generator?.next() {
+                    return [el]
+                } else {
+                    return nil
+                }
+            }
+        default:
+            var newSequences: [SequenceOf<T>] = rest(self.sequences)
+            var restGenerator = PermutationGenerator(sequences: newSequences)
+            var firstGenerator = self.sequences[0].generate()
+            var currentRestElement = restGenerator.next()
+            var currentFirstElement = firstGenerator.next()
+            self.generator = GeneratorOf {
+                switch (currentFirstElement, currentRestElement) {
+                case (.Some(let first), .Some(let rest)):
+                    currentFirstElement = firstGenerator.next()
+                    return rest + [first]
+                case (.None, .Some(let rest)):
+                    firstGenerator = self.sequences.first!.generate()
+                    currentRestElement = restGenerator.next()
+                    if let el = firstGenerator.next(), restEl = currentRestElement {
+                        currentFirstElement = firstGenerator.next()
+                        return restEl + [el]
+                    } else {
+                        return nil
+                    }
+                case (.Some, .None), (.None, .None): return nil
+                }
+            }
         }
     }
 
     mutating func next() -> [T]? {
-        // If any of the arrays are empty, a proper permutation can't be made
-        if done || any(self.arrays, { $0.isEmpty }) {
-            return nil
-        }
-        // The current set of indexes should have a valid set
-        var returnArray: [T] = []
-        for (i, arr) in enumerate(self.arrays) {
-            returnArray.append(arr[indexes[i]])
-        }
-
-        for i in 0..<indexes.count {
-            let sequence = self.arrays[i]
-            var currentIndex = indexes[i]
-            if currentIndex < sequence.count - 1 {
-                indexes[i] += 1
-                break
-            } else if i == indexes.count - 1 {
-                self.done = true
-            } else {
-                self.indexes[i] = 0
-            }
-        }
-
-        return returnArray
+        return generator?.next()
     }
 }
 
@@ -309,7 +324,7 @@ struct ChordEnumerator : SequenceType {
         let tenorNotes = notesInRange(tenorRange)
         let altoNotes = notesInRange(altoRange)
         let sopranoNotes = notesInRange(sopranoRange)
-        var generator = PermutationGenerator(arrays: [bassNotes, tenorNotes, altoNotes, sopranoNotes])
+        var generator = PermutationGenerator(sequences: [bassNotes, tenorNotes, altoNotes, sopranoNotes].map { SequenceOf($0) }.reverse())
         return GeneratorOf {
             if let notes = generator.next() {
                 return FourPartChord(
@@ -329,6 +344,7 @@ struct ChordEnumerator : SequenceType {
 //let enumerator = ChordEnumerator(chord: Chord(C))
 //enumerator.notesInRange(enumerator.bassRange)
 
+typealias HarmonyConstraintBlock = [FourPartChord] -> Bool
 typealias ChordConstraintBlock = FourPartChord -> Bool
 typealias AdjacentChordConstraintBlock = (FourPartChord, FourPartChord) -> Bool
 
@@ -368,53 +384,81 @@ let noVoiceCrossingConstraint: ChordConstraintBlock = { chord in
 }
 
 let completeChordConstraint: ChordConstraintBlock = { chord in
-    return Set(chord.values.map {
+    Set(chord.values.map {
         $0.absoluteValue % 12
     }).count == chord.chord.semitones.count
 }
 
 
-func &(lhs: ChordConstraintBlock, rhs: ChordConstraintBlock) -> ChordConstraintBlock {
-    return { chord in return lhs(chord) && rhs(chord) }
+func &<T>(lhs: T -> Bool, rhs: T -> Bool) -> T -> Bool {
+    return { t in return lhs(t) && rhs(t) }
 }
 
 //filter(enumerator, noVoiceCrossingConstraint & completeChordConstraint).count
+
+var generator = ChordEnumerator(chord: Chord(C)).generate()
+generator.next()
 
 //for thing in ChordEnumerator(chord: Chord(C)) {
 //    println(thing)
 //}
 
+func everyTwo<T,U>(sequence: SequenceOf<T>, block: (T, T) -> U) -> U? {
+    var generator = sequence.generate()
+    var first = generator.next()
+    var second = generator.next()
+    var ret: U?
+    while let f = first, s = second {
+        ret = block(f, s)
+        first = second
+        second = generator.next()
+    }
+    return ret
+}
+
 struct HarmonySolver : SequenceType {
     let enumerators: [ChordEnumerator]
-    let constraint: ChordConstraintBlock
+    let chordConstraint: ChordConstraintBlock
+    let adjacentChordConstraint: AdjacentChordConstraintBlock
 
-    init(enumerators: [ChordEnumerator], constraint: ChordConstraintBlock) {
+    init(enumerators: [ChordEnumerator], chordConstraint: ChordConstraintBlock, adjacentConstraint: AdjacentChordConstraintBlock) {
         self.enumerators = enumerators
-        self.constraint = constraint
+        self.chordConstraint = chordConstraint
+        self.adjacentChordConstraint = adjacentConstraint
     }
 
     func generate() -> GeneratorOf<[FourPartChord]> {
         var arrays = enumerators.map {
             Array($0).filter {
-                return self.constraint($0)
+                return self.chordConstraint($0)
             }
         }
-        var generator = PermutationGenerator(arrays: arrays)
+        var generator = PermutationGenerator(sequences: arrays.map { SequenceOf($0) }.reverse())
         return GeneratorOf {
-            return generator.next()
+            while let chords = generator.next() {
+                if let bool = everyTwo(SequenceOf(chords), self.adjacentChordConstraint) where bool {
+                    return chords
+                }
+            }
+            return nil
         }
     }
 }
 
 //Array(ChordEnumerator(chord: Chord(C))).count
 
-//var solverGenerator = HarmonySolver(
-//    enumerators: [ChordEnumerator(chord: Chord(C)), ChordEnumerator(chord: Chord(G))],
-//    constraint: noVoiceCrossingConstraint & completeChordConstraint
-//).generate()
+var solverGenerator = HarmonySolver(
+    enumerators: [ChordEnumerator(chord: Chord(G).seven), ChordEnumerator(chord: Chord(C))],
+    chordConstraint: noVoiceCrossingConstraint & completeChordConstraint,
+    adjacentConstraint: noParallelFifthsConstraint
+).generate()
 
-//println(solverGenerator.next()!)
-//println(solverGenerator.next()!)
-//println(solverGenerator.next()!)
-//println(solverGenerator.next()!)
-//println(solverGenerator.next()!)
+//while let el = solverGenerator.next() fa
+//    println(el)
+//}
+
+println(solverGenerator.next()!)
+println(solverGenerator.next()!)
+println(solverGenerator.next()!)
+println(solverGenerator.next()!)
+println(solverGenerator.next()!)
