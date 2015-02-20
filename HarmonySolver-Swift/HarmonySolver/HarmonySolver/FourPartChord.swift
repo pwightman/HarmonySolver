@@ -24,7 +24,7 @@ struct FourPartChord : Equatable, Printable, DebugPrintable {
     }
 
     var description: String {
-        return "\(Note(absoluteValue: chord.noteType)) \(bass) \(tenor) \(alto) \(soprano)"
+        return "\(Note(absoluteValue: chord.noteType.value)) \(bass) \(tenor) \(alto) \(soprano)"
     }
 
     var debugDescription: String {
@@ -32,7 +32,7 @@ struct FourPartChord : Equatable, Printable, DebugPrintable {
     }
 
     func transposedTo(noteType: NoteType) -> FourPartChord {
-        let newValues = self.values.map { Note(absoluteValue: $0.absoluteValue - noteType) }
+        let newValues = self.values.map { Note(absoluteValue: $0.absoluteValue - noteType.value) }
         return FourPartChord(
             chord: self.chord,
             bass:    newValues[0],

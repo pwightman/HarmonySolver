@@ -44,7 +44,7 @@ struct Chord : Equatable, Printable, DebugPrintable {
     let noteType: NoteType
 
     var description: String {
-        return Note(absoluteValue: self.noteType).description
+        return Note(absoluteValue: self.noteType.value).description
     }
 
     var debugDescription: String {

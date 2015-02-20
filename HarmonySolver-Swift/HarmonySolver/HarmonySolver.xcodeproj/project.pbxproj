@@ -16,6 +16,8 @@
 		5F58320C1A8FAA2D004E2608 /* LilyPondTemplate.ly in Resources */ = {isa = PBXBuildFile; fileRef = 5F58320B1A8FAA2D004E2608 /* LilyPondTemplate.ly */; };
 		5F7EC3971A901A08006CDBF2 /* LilyPondSerializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F7EC3961A901A08006CDBF2 /* LilyPondSerializer.swift */; };
 		5F7EC39A1A901A84006CDBF2 /* Key.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F7EC3991A901A84006CDBF2 /* Key.swift */; };
+		5F7EC39C1A926FB2006CDBF2 /* ChordProgression.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F7EC39B1A926FB2006CDBF2 /* ChordProgression.swift */; };
+		5F7EC39E1A9315CA006CDBF2 /* PermutationGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F7EC39D1A9315CA006CDBF2 /* PermutationGenerator.swift */; };
 		5FDA68591A89BC760053891B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FDA68581A89BC760053891B /* AppDelegate.swift */; };
 		5FDA685B1A89BC760053891B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FDA685A1A89BC760053891B /* ViewController.swift */; };
 		5FDA685E1A89BC760053891B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5FDA685C1A89BC760053891B /* Main.storyboard */; };
@@ -45,6 +47,8 @@
 		5F7403751A89DDC600A839D3 /* Playground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = Playground.playground; path = Models/Playground.playground; sourceTree = "<group>"; };
 		5F7EC3961A901A08006CDBF2 /* LilyPondSerializer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LilyPondSerializer.swift; sourceTree = "<group>"; };
 		5F7EC3991A901A84006CDBF2 /* Key.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Key.swift; sourceTree = "<group>"; };
+		5F7EC39B1A926FB2006CDBF2 /* ChordProgression.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChordProgression.swift; sourceTree = "<group>"; };
+		5F7EC39D1A9315CA006CDBF2 /* PermutationGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PermutationGenerator.swift; sourceTree = "<group>"; };
 		5FDA68531A89BC760053891B /* HarmonySolver.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HarmonySolver.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FDA68571A89BC760053891B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5FDA68581A89BC760053891B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -109,10 +113,12 @@
 				5FDA685A1A89BC760053891B /* ViewController.swift */,
 				5F5831FF1A8FA2F7004E2608 /* Note.swift */,
 				5F5832011A8FA301004E2608 /* Chord.swift */,
+				5F7EC39B1A926FB2006CDBF2 /* ChordProgression.swift */,
 				5F5832031A8FA309004E2608 /* FourPartChord.swift */,
 				5F5832051A8FA31D004E2608 /* ChordEnumerator.swift */,
 				5F5832071A8FA329004E2608 /* HarmonySolver.swift */,
 				5F7EC3991A901A84006CDBF2 /* Key.swift */,
+				5F7EC39D1A9315CA006CDBF2 /* PermutationGenerator.swift */,
 				5F5832091A8FA3B7004E2608 /* Util.swift */,
 				5F7EC3981A901A0E006CDBF2 /* LilyPond Serializer */,
 				5FDA685C1A89BC760053891B /* Main.storyboard */,
@@ -252,7 +258,9 @@
 			files = (
 				5F5832061A8FA31D004E2608 /* ChordEnumerator.swift in Sources */,
 				5F7EC39A1A901A84006CDBF2 /* Key.swift in Sources */,
+				5F7EC39C1A926FB2006CDBF2 /* ChordProgression.swift in Sources */,
 				5F5832021A8FA301004E2608 /* Chord.swift in Sources */,
+				5F7EC39E1A9315CA006CDBF2 /* PermutationGenerator.swift in Sources */,
 				5FDA685B1A89BC760053891B /* ViewController.swift in Sources */,
 				5F7EC3971A901A08006CDBF2 /* LilyPondSerializer.swift in Sources */,
 				5F58320A1A8FA3B7004E2608 /* Util.swift in Sources */,

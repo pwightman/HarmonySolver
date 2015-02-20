@@ -19,15 +19,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         println("Starting")
 
-        let key = Key(C)
+        let key = Key(.C)
 
         let enumerators = [
             key.two,
             key.five,
             key.one,
-        ].map { ChordEnumerator(chord: $0) }
+        ].map { ChordEnumerator(chord: $0, randomize: true) }
 
-        var solverGenerator = HarmonySolver(
+        var solverGenerator = RecursiveSolver(
             enumerators: enumerators,
             chordConstraint:
                   noVoiceCrossingConstraint

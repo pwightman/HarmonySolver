@@ -30,26 +30,26 @@ struct Key {
     }
 
     var two: Chord {
-        return Chord((self.noteType + 2) % 12).minor
+        return Chord(self.noteType.cycledBy(2)).minor
     }
 
     var three: Chord {
-        return Chord((self.noteType + 4) % 12).minor
+        return Chord(self.noteType.cycledBy(4)).minor
     }
 
     var four: Chord {
-        return Chord((self.noteType + 5) % 12)
+        return Chord(self.noteType.cycledBy(5))
     }
 
     var five: Chord {
-        return Chord((self.noteType + 7) % 12)
+        return Chord(self.noteType.cycledBy(7))
     }
 
     var six: Chord {
-        return Chord((self.noteType + 9) % 12).minor
+        return Chord(self.noteType.cycledBy(9)).minor
     }
 
     var seven: Chord {
-        return Chord((self.noteType + 11) % 12).fullyDiminished
+        return Chord(self.noteType.cycledBy(11)).fullyDiminished
     }
 }
