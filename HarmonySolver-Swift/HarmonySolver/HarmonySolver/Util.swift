@@ -12,8 +12,19 @@ func *(lhs: String, rhs: Int) -> String {
     return reduce(1..<rhs, lhs) { s, e in return s + lhs }
 }
 
-func &<T>(lhs: T -> Bool, rhs: T -> Bool) -> T -> Bool {
+public func &<T>(lhs: T -> Bool, rhs: T -> Bool) -> T -> Bool {
     return { t in return lhs(t) && rhs(t) }
+}
+
+extension Array {
+    func shuffled() -> [T] {
+        var list = self
+        for i in 0..<(list.count - 1) {
+            let j = Int(arc4random_uniform(UInt32(list.count - i))) + i
+            swap(&list[i], &list[j])
+        }
+        return list
+    }
 }
 
 func everyTwo<S : SequenceType>(sequence: S, block: (S.Generator.Element, S.Generator.Element) -> Bool) -> Bool {

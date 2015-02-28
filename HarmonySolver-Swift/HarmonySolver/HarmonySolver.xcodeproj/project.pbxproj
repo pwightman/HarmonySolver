@@ -7,17 +7,26 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5F5832001A8FA2F7004E2608 /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F5831FF1A8FA2F7004E2608 /* Note.swift */; };
-		5F5832021A8FA301004E2608 /* Chord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F5832011A8FA301004E2608 /* Chord.swift */; };
-		5F5832041A8FA309004E2608 /* FourPartChord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F5832031A8FA309004E2608 /* FourPartChord.swift */; };
-		5F5832061A8FA31D004E2608 /* ChordEnumerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F5832051A8FA31D004E2608 /* ChordEnumerator.swift */; };
-		5F5832081A8FA329004E2608 /* HarmonySolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F5832071A8FA329004E2608 /* HarmonySolver.swift */; };
-		5F58320A1A8FA3B7004E2608 /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F5832091A8FA3B7004E2608 /* Util.swift */; };
-		5F58320C1A8FAA2D004E2608 /* LilyPondTemplate.ly in Resources */ = {isa = PBXBuildFile; fileRef = 5F58320B1A8FAA2D004E2608 /* LilyPondTemplate.ly */; };
-		5F7EC3971A901A08006CDBF2 /* LilyPondSerializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F7EC3961A901A08006CDBF2 /* LilyPondSerializer.swift */; };
-		5F7EC39A1A901A84006CDBF2 /* Key.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F7EC3991A901A84006CDBF2 /* Key.swift */; };
-		5F7EC39C1A926FB2006CDBF2 /* ChordProgression.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F7EC39B1A926FB2006CDBF2 /* ChordProgression.swift */; };
-		5F7EC39E1A9315CA006CDBF2 /* PermutationGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F7EC39D1A9315CA006CDBF2 /* PermutationGenerator.swift */; };
+		5F056EBB1A9A3B500049450A /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F5831FF1A8FA2F7004E2608 /* Note.swift */; };
+		5F056EBC1A9A3B500049450A /* Chord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F5832011A8FA301004E2608 /* Chord.swift */; };
+		5F056EBD1A9A3B500049450A /* ChordProgression.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F7EC39B1A926FB2006CDBF2 /* ChordProgression.swift */; };
+		5F056EBE1A9A3B500049450A /* FourPartChord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F5832031A8FA309004E2608 /* FourPartChord.swift */; };
+		5F056EBF1A9A3B500049450A /* ChordEnumerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F5832051A8FA31D004E2608 /* ChordEnumerator.swift */; };
+		5F056EC01A9A3B500049450A /* HarmonySolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F5832071A8FA329004E2608 /* HarmonySolver.swift */; };
+		5F056EC11A9A3B500049450A /* Key.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F7EC3991A901A84006CDBF2 /* Key.swift */; };
+		5F056EC21A9A3B500049450A /* PermutationGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F7EC39D1A9315CA006CDBF2 /* PermutationGenerator.swift */; };
+		5F056EC31A9A3B500049450A /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F5832091A8FA3B7004E2608 /* Util.swift */; };
+		5F056ECD1A9A3B600049450A /* LilyPondSerializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F7EC3961A901A08006CDBF2 /* LilyPondSerializer.swift */; };
+		5F056ECE1A9A3B600049450A /* LilyPondTemplate.ly in Resources */ = {isa = PBXBuildFile; fileRef = 5F58320B1A8FAA2D004E2608 /* LilyPondTemplate.ly */; };
+		5F056ED11A9A4F000049450A /* soundfont-stripped.sf2 in Resources */ = {isa = PBXBuildFile; fileRef = 5F056ED01A9A4EB50049450A /* soundfont-stripped.sf2 */; };
+		5F056ED41A9D5C090049450A /* correct-four-part.mid in Resources */ = {isa = PBXBuildFile; fileRef = 5F056ED31A9D5C090049450A /* correct-four-part.mid */; };
+		5FB7C58F1A99A7B4003C24B3 /* MIKMIDI.framework in Copy Files (1 item) */ = {isa = PBXBuildFile; fileRef = 5FB7C58B1A99A74F003C24B3 /* MIKMIDI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		5FB7C59A1A9A3A63003C24B3 /* Solver.h in Headers */ = {isa = PBXBuildFile; fileRef = 5FB7C5991A9A3A63003C24B3 /* Solver.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5FB7C5A01A9A3A63003C24B3 /* Solver.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FB7C5951A9A3A63003C24B3 /* Solver.framework */; };
+		5FB7C5A91A9A3A63003C24B3 /* SolverTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB7C5A81A9A3A63003C24B3 /* SolverTests.swift */; };
+		5FB7C5AC1A9A3A63003C24B3 /* Solver.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FB7C5951A9A3A63003C24B3 /* Solver.framework */; };
+		5FB7C5AD1A9A3A63003C24B3 /* Solver.framework in Copy Files (1 item) */ = {isa = PBXBuildFile; fileRef = 5FB7C5951A9A3A63003C24B3 /* Solver.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		5FC9FE151A999766004094B0 /* test.midi in Resources */ = {isa = PBXBuildFile; fileRef = 5FC9FE141A999766004094B0 /* test.midi */; };
 		5FDA68591A89BC760053891B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FDA68581A89BC760053891B /* AppDelegate.swift */; };
 		5FDA685B1A89BC760053891B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FDA685A1A89BC760053891B /* ViewController.swift */; };
 		5FDA685E1A89BC760053891B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5FDA685C1A89BC760053891B /* Main.storyboard */; };
@@ -27,6 +36,48 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		5FB7C5881A99A74F003C24B3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5FB7C5831A99A74F003C24B3 /* MIKMIDI.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 9D74EEA517A7129300BEE89F;
+			remoteInfo = MIKMIDI;
+		};
+		5FB7C58A1A99A74F003C24B3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5FB7C5831A99A74F003C24B3 /* MIKMIDI.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 9DAF8B061A7AFF1100F46528;
+			remoteInfo = "MIKMIDI-iOS";
+		};
+		5FB7C58C1A99A792003C24B3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5FB7C5831A99A74F003C24B3 /* MIKMIDI.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 9DAF8B051A7AFF1100F46528;
+			remoteInfo = "MIKMIDI-iOS";
+		};
+		5FB7C5A11A9A3A63003C24B3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5FDA684B1A89BC760053891B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5FB7C5941A9A3A63003C24B3;
+			remoteInfo = Solver;
+		};
+		5FB7C5A31A9A3A63003C24B3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5FDA684B1A89BC760053891B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5FDA68521A89BC760053891B;
+			remoteInfo = HarmonySolver;
+		};
+		5FB7C5AA1A9A3A63003C24B3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5FDA684B1A89BC760053891B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5FB7C5941A9A3A63003C24B3;
+			remoteInfo = Solver;
+		};
 		5FDA68691A89BC770053891B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 5FDA684B1A89BC760053891B /* Project object */;
@@ -36,19 +87,43 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		5FB7C58E1A99A79D003C24B3 /* Copy Files (1 item) */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				5FB7C58F1A99A7B4003C24B3 /* MIKMIDI.framework in Copy Files (1 item) */,
+				5FB7C5AD1A9A3A63003C24B3 /* Solver.framework in Copy Files (1 item) */,
+			);
+			name = "Copy Files (1 item)";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
-		5F5831FF1A8FA2F7004E2608 /* Note.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
-		5F5832011A8FA301004E2608 /* Chord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Chord.swift; sourceTree = "<group>"; };
-		5F5832031A8FA309004E2608 /* FourPartChord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FourPartChord.swift; sourceTree = "<group>"; };
-		5F5832051A8FA31D004E2608 /* ChordEnumerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChordEnumerator.swift; sourceTree = "<group>"; };
-		5F5832071A8FA329004E2608 /* HarmonySolver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HarmonySolver.swift; sourceTree = "<group>"; };
-		5F5832091A8FA3B7004E2608 /* Util.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
+		5F056ED01A9A4EB50049450A /* soundfont-stripped.sf2 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "soundfont-stripped.sf2"; sourceTree = "<group>"; };
+		5F056ED31A9D5C090049450A /* correct-four-part.mid */ = {isa = PBXFileReference; lastKnownFileType = audio.midi; path = "correct-four-part.mid"; sourceTree = "<group>"; };
+		5F5831FF1A8FA2F7004E2608 /* Note.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Note.swift; path = ../HarmonySolver/Note.swift; sourceTree = "<group>"; };
+		5F5832011A8FA301004E2608 /* Chord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Chord.swift; path = ../HarmonySolver/Chord.swift; sourceTree = "<group>"; };
+		5F5832031A8FA309004E2608 /* FourPartChord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FourPartChord.swift; path = ../HarmonySolver/FourPartChord.swift; sourceTree = "<group>"; };
+		5F5832051A8FA31D004E2608 /* ChordEnumerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChordEnumerator.swift; path = ../HarmonySolver/ChordEnumerator.swift; sourceTree = "<group>"; };
+		5F5832071A8FA329004E2608 /* HarmonySolver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HarmonySolver.swift; path = ../HarmonySolver/HarmonySolver.swift; sourceTree = "<group>"; };
+		5F5832091A8FA3B7004E2608 /* Util.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Util.swift; path = ../HarmonySolver/Util.swift; sourceTree = "<group>"; };
 		5F58320B1A8FAA2D004E2608 /* LilyPondTemplate.ly */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LilyPondTemplate.ly; sourceTree = "<group>"; };
-		5F7403751A89DDC600A839D3 /* Playground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = Playground.playground; path = Models/Playground.playground; sourceTree = "<group>"; };
 		5F7EC3961A901A08006CDBF2 /* LilyPondSerializer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LilyPondSerializer.swift; sourceTree = "<group>"; };
-		5F7EC3991A901A84006CDBF2 /* Key.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Key.swift; sourceTree = "<group>"; };
-		5F7EC39B1A926FB2006CDBF2 /* ChordProgression.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChordProgression.swift; sourceTree = "<group>"; };
-		5F7EC39D1A9315CA006CDBF2 /* PermutationGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PermutationGenerator.swift; sourceTree = "<group>"; };
+		5F7EC3991A901A84006CDBF2 /* Key.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Key.swift; path = ../HarmonySolver/Key.swift; sourceTree = "<group>"; };
+		5F7EC39B1A926FB2006CDBF2 /* ChordProgression.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChordProgression.swift; path = ../HarmonySolver/ChordProgression.swift; sourceTree = "<group>"; };
+		5F7EC39D1A9315CA006CDBF2 /* PermutationGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PermutationGenerator.swift; path = ../HarmonySolver/PermutationGenerator.swift; sourceTree = "<group>"; };
+		5FB7C5831A99A74F003C24B3 /* MIKMIDI.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = MIKMIDI.xcodeproj; path = MIKMIDI/Framework/MIKMIDI.xcodeproj; sourceTree = "<group>"; };
+		5FB7C5951A9A3A63003C24B3 /* Solver.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Solver.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5FB7C5981A9A3A63003C24B3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5FB7C5991A9A3A63003C24B3 /* Solver.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Solver.h; sourceTree = "<group>"; };
+		5FB7C59F1A9A3A63003C24B3 /* SolverTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SolverTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5FB7C5A71A9A3A63003C24B3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5FB7C5A81A9A3A63003C24B3 /* SolverTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SolverTests.swift; sourceTree = "<group>"; };
+		5FC9FE141A999766004094B0 /* test.midi */ = {isa = PBXFileReference; lastKnownFileType = audio.midi; path = test.midi; sourceTree = "<group>"; };
 		5FDA68531A89BC760053891B /* HarmonySolver.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HarmonySolver.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FDA68571A89BC760053891B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5FDA68581A89BC760053891B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -62,10 +137,26 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		5FB7C5911A9A3A63003C24B3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5FB7C59C1A9A3A63003C24B3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5FB7C5A01A9A3A63003C24B3 /* Solver.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		5FDA68501A89BC760053891B /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5FB7C5AC1A9A3A63003C24B3 /* Solver.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -86,31 +177,21 @@
 				5F58320B1A8FAA2D004E2608 /* LilyPondTemplate.ly */,
 			);
 			name = "LilyPond Serializer";
+			path = ../HarmonySolver;
 			sourceTree = "<group>";
 		};
-		5FDA684A1A89BC760053891B = {
+		5FB7C5841A99A74F003C24B3 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				5FDA68551A89BC760053891B /* HarmonySolver */,
-				5FDA686B1A89BC770053891B /* HarmonySolverTests */,
-				5FDA68541A89BC760053891B /* Products */,
-			);
-			sourceTree = "<group>";
-		};
-		5FDA68541A89BC760053891B /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				5FDA68531A89BC760053891B /* HarmonySolver.app */,
-				5FDA68681A89BC770053891B /* HarmonySolverTests.xctest */,
+				5FB7C5891A99A74F003C24B3 /* MIKMIDI.framework */,
+				5FB7C58B1A99A74F003C24B3 /* MIKMIDI.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		5FDA68551A89BC760053891B /* HarmonySolver */ = {
+		5FB7C5961A9A3A63003C24B3 /* Solver */ = {
 			isa = PBXGroup;
 			children = (
-				5FDA68581A89BC760053891B /* AppDelegate.swift */,
-				5FDA685A1A89BC760053891B /* ViewController.swift */,
 				5F5831FF1A8FA2F7004E2608 /* Note.swift */,
 				5F5832011A8FA301004E2608 /* Chord.swift */,
 				5F7EC39B1A926FB2006CDBF2 /* ChordProgression.swift */,
@@ -121,11 +202,69 @@
 				5F7EC39D1A9315CA006CDBF2 /* PermutationGenerator.swift */,
 				5F5832091A8FA3B7004E2608 /* Util.swift */,
 				5F7EC3981A901A0E006CDBF2 /* LilyPond Serializer */,
+				5FB7C5991A9A3A63003C24B3 /* Solver.h */,
+				5FB7C5971A9A3A63003C24B3 /* Supporting Files */,
+			);
+			path = Solver;
+			sourceTree = "<group>";
+		};
+		5FB7C5971A9A3A63003C24B3 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				5FB7C5981A9A3A63003C24B3 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		5FB7C5A51A9A3A63003C24B3 /* SolverTests */ = {
+			isa = PBXGroup;
+			children = (
+				5FB7C5A81A9A3A63003C24B3 /* SolverTests.swift */,
+				5FB7C5A61A9A3A63003C24B3 /* Supporting Files */,
+			);
+			path = SolverTests;
+			sourceTree = "<group>";
+		};
+		5FB7C5A61A9A3A63003C24B3 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				5FB7C5A71A9A3A63003C24B3 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		5FDA684A1A89BC760053891B = {
+			isa = PBXGroup;
+			children = (
+				5FDA68551A89BC760053891B /* HarmonySolver */,
+				5FDA686B1A89BC770053891B /* HarmonySolverTests */,
+				5FB7C5961A9A3A63003C24B3 /* Solver */,
+				5FB7C5A51A9A3A63003C24B3 /* SolverTests */,
+				5FDA68541A89BC760053891B /* Products */,
+				5FB7C5831A99A74F003C24B3 /* MIKMIDI.xcodeproj */,
+			);
+			sourceTree = "<group>";
+		};
+		5FDA68541A89BC760053891B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5FDA68531A89BC760053891B /* HarmonySolver.app */,
+				5FDA68681A89BC770053891B /* HarmonySolverTests.xctest */,
+				5FB7C5951A9A3A63003C24B3 /* Solver.framework */,
+				5FB7C59F1A9A3A63003C24B3 /* SolverTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		5FDA68551A89BC760053891B /* HarmonySolver */ = {
+			isa = PBXGroup;
+			children = (
+				5FDA68581A89BC760053891B /* AppDelegate.swift */,
+				5FDA685A1A89BC760053891B /* ViewController.swift */,
 				5FDA685C1A89BC760053891B /* Main.storyboard */,
 				5FDA685F1A89BC760053891B /* Images.xcassets */,
 				5FDA68611A89BC760053891B /* LaunchScreen.xib */,
 				5FDA68561A89BC760053891B /* Supporting Files */,
-				5F7403751A89DDC600A839D3 /* Playground.playground */,
 			);
 			path = HarmonySolver;
 			sourceTree = "<group>";
@@ -133,6 +272,9 @@
 		5FDA68561A89BC760053891B /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				5F056ED01A9A4EB50049450A /* soundfont-stripped.sf2 */,
+				5FC9FE141A999766004094B0 /* test.midi */,
+				5F056ED31A9D5C090049450A /* correct-four-part.mid */,
 				5FDA68571A89BC760053891B /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -157,7 +299,55 @@
 		};
 /* End PBXGroup section */
 
+/* Begin PBXHeadersBuildPhase section */
+		5FB7C5921A9A3A63003C24B3 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5FB7C59A1A9A3A63003C24B3 /* Solver.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
 /* Begin PBXNativeTarget section */
+		5FB7C5941A9A3A63003C24B3 /* Solver */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5FB7C5AE1A9A3A63003C24B3 /* Build configuration list for PBXNativeTarget "Solver" */;
+			buildPhases = (
+				5FB7C5901A9A3A63003C24B3 /* Sources */,
+				5FB7C5911A9A3A63003C24B3 /* Frameworks */,
+				5FB7C5921A9A3A63003C24B3 /* Headers */,
+				5FB7C5931A9A3A63003C24B3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Solver;
+			productName = Solver;
+			productReference = 5FB7C5951A9A3A63003C24B3 /* Solver.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		5FB7C59E1A9A3A63003C24B3 /* SolverTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5FB7C5B11A9A3A63003C24B3 /* Build configuration list for PBXNativeTarget "SolverTests" */;
+			buildPhases = (
+				5FB7C59B1A9A3A63003C24B3 /* Sources */,
+				5FB7C59C1A9A3A63003C24B3 /* Frameworks */,
+				5FB7C59D1A9A3A63003C24B3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5FB7C5A21A9A3A63003C24B3 /* PBXTargetDependency */,
+				5FB7C5A41A9A3A63003C24B3 /* PBXTargetDependency */,
+			);
+			name = SolverTests;
+			productName = SolverTests;
+			productReference = 5FB7C59F1A9A3A63003C24B3 /* SolverTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		5FDA68521A89BC760053891B /* HarmonySolver */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5FDA68721A89BC770053891B /* Build configuration list for PBXNativeTarget "HarmonySolver" */;
@@ -165,10 +355,13 @@
 				5FDA684F1A89BC760053891B /* Sources */,
 				5FDA68501A89BC760053891B /* Frameworks */,
 				5FDA68511A89BC760053891B /* Resources */,
+				5FB7C58E1A99A79D003C24B3 /* Copy Files (1 item) */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				5FB7C58D1A99A792003C24B3 /* PBXTargetDependency */,
+				5FB7C5AB1A9A3A63003C24B3 /* PBXTargetDependency */,
 			);
 			name = HarmonySolver;
 			productName = HarmonySolver;
@@ -202,6 +395,13 @@
 				LastUpgradeCheck = 0630;
 				ORGANIZATIONNAME = "Alora Studios";
 				TargetAttributes = {
+					5FB7C5941A9A3A63003C24B3 = {
+						CreatedOnToolsVersion = 6.3;
+					};
+					5FB7C59E1A9A3A63003C24B3 = {
+						CreatedOnToolsVersion = 6.3;
+						TestTargetID = 5FDA68521A89BC760053891B;
+					};
 					5FDA68521A89BC760053891B = {
 						CreatedOnToolsVersion = 6.3;
 					};
@@ -222,22 +422,64 @@
 			mainGroup = 5FDA684A1A89BC760053891B;
 			productRefGroup = 5FDA68541A89BC760053891B /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 5FB7C5841A99A74F003C24B3 /* Products */;
+					ProjectRef = 5FB7C5831A99A74F003C24B3 /* MIKMIDI.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				5FDA68521A89BC760053891B /* HarmonySolver */,
 				5FDA68671A89BC770053891B /* HarmonySolverTests */,
+				5FB7C5941A9A3A63003C24B3 /* Solver */,
+				5FB7C59E1A9A3A63003C24B3 /* SolverTests */,
 			);
 		};
 /* End PBXProject section */
 
+/* Begin PBXReferenceProxy section */
+		5FB7C5891A99A74F003C24B3 /* MIKMIDI.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = MIKMIDI.framework;
+			remoteRef = 5FB7C5881A99A74F003C24B3 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		5FB7C58B1A99A74F003C24B3 /* MIKMIDI.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = MIKMIDI.framework;
+			remoteRef = 5FB7C58A1A99A74F003C24B3 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
 /* Begin PBXResourcesBuildPhase section */
+		5FB7C5931A9A3A63003C24B3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5F056ECE1A9A3B600049450A /* LilyPondTemplate.ly in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5FB7C59D1A9A3A63003C24B3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		5FDA68511A89BC760053891B /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5F056ED11A9A4F000049450A /* soundfont-stripped.sf2 in Resources */,
 				5FDA685E1A89BC760053891B /* Main.storyboard in Resources */,
-				5F58320C1A8FAA2D004E2608 /* LilyPondTemplate.ly in Resources */,
 				5FDA68631A89BC760053891B /* LaunchScreen.xib in Resources */,
+				5FC9FE151A999766004094B0 /* test.midi in Resources */,
+				5F056ED41A9D5C090049450A /* correct-four-part.mid in Resources */,
 				5FDA68601A89BC760053891B /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -252,22 +494,37 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		5FB7C5901A9A3A63003C24B3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5F056EC11A9A3B500049450A /* Key.swift in Sources */,
+				5F056EC31A9A3B500049450A /* Util.swift in Sources */,
+				5F056ECD1A9A3B600049450A /* LilyPondSerializer.swift in Sources */,
+				5F056EBF1A9A3B500049450A /* ChordEnumerator.swift in Sources */,
+				5F056EBC1A9A3B500049450A /* Chord.swift in Sources */,
+				5F056EBE1A9A3B500049450A /* FourPartChord.swift in Sources */,
+				5F056EC21A9A3B500049450A /* PermutationGenerator.swift in Sources */,
+				5F056EC01A9A3B500049450A /* HarmonySolver.swift in Sources */,
+				5F056EBD1A9A3B500049450A /* ChordProgression.swift in Sources */,
+				5F056EBB1A9A3B500049450A /* Note.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5FB7C59B1A9A3A63003C24B3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5FB7C5A91A9A3A63003C24B3 /* SolverTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		5FDA684F1A89BC760053891B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5F5832061A8FA31D004E2608 /* ChordEnumerator.swift in Sources */,
-				5F7EC39A1A901A84006CDBF2 /* Key.swift in Sources */,
-				5F7EC39C1A926FB2006CDBF2 /* ChordProgression.swift in Sources */,
-				5F5832021A8FA301004E2608 /* Chord.swift in Sources */,
-				5F7EC39E1A9315CA006CDBF2 /* PermutationGenerator.swift in Sources */,
 				5FDA685B1A89BC760053891B /* ViewController.swift in Sources */,
-				5F7EC3971A901A08006CDBF2 /* LilyPondSerializer.swift in Sources */,
-				5F58320A1A8FA3B7004E2608 /* Util.swift in Sources */,
-				5F5832041A8FA309004E2608 /* FourPartChord.swift in Sources */,
 				5FDA68591A89BC760053891B /* AppDelegate.swift in Sources */,
-				5F5832001A8FA2F7004E2608 /* Note.swift in Sources */,
-				5F5832081A8FA329004E2608 /* HarmonySolver.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -282,6 +539,26 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		5FB7C58D1A99A792003C24B3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "MIKMIDI-iOS";
+			targetProxy = 5FB7C58C1A99A792003C24B3 /* PBXContainerItemProxy */;
+		};
+		5FB7C5A21A9A3A63003C24B3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5FB7C5941A9A3A63003C24B3 /* Solver */;
+			targetProxy = 5FB7C5A11A9A3A63003C24B3 /* PBXContainerItemProxy */;
+		};
+		5FB7C5A41A9A3A63003C24B3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5FDA68521A89BC760053891B /* HarmonySolver */;
+			targetProxy = 5FB7C5A31A9A3A63003C24B3 /* PBXContainerItemProxy */;
+		};
+		5FB7C5AB1A9A3A63003C24B3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5FB7C5941A9A3A63003C24B3 /* Solver */;
+			targetProxy = 5FB7C5AA1A9A3A63003C24B3 /* PBXContainerItemProxy */;
+		};
 		5FDA686A1A89BC770053891B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 5FDA68521A89BC760053891B /* HarmonySolver */;
@@ -309,6 +586,82 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		5FB7C5AF1A9A3A63003C24B3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = Solver/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		5FB7C5B01A9A3A63003C24B3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = Solver/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		5FB7C5B21A9A3A63003C24B3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = SolverTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HarmonySolver.app/HarmonySolver";
+			};
+			name = Debug;
+		};
+		5FB7C5B31A9A3A63003C24B3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = SolverTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HarmonySolver.app/HarmonySolver";
+			};
+			name = Release;
+		};
 		5FDA68701A89BC770053891B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -344,7 +697,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -382,7 +735,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -394,7 +747,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/MIKMIDI/Framework/build/Debug-iphoneos",
+					"$(PROJECT_DIR)/MIKMIDI/Framework/build/Debug",
+				);
 				INFOPLIST_FILE = HarmonySolver/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -404,7 +763,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/MIKMIDI/Framework/build/Debug-iphoneos",
+					"$(PROJECT_DIR)/MIKMIDI/Framework/build/Debug",
+				);
 				INFOPLIST_FILE = HarmonySolver/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -447,6 +812,24 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		5FB7C5AE1A9A3A63003C24B3 /* Build configuration list for PBXNativeTarget "Solver" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5FB7C5AF1A9A3A63003C24B3 /* Debug */,
+				5FB7C5B01A9A3A63003C24B3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5FB7C5B11A9A3A63003C24B3 /* Build configuration list for PBXNativeTarget "SolverTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5FB7C5B21A9A3A63003C24B3 /* Debug */,
+				5FB7C5B31A9A3A63003C24B3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		5FDA684E1A89BC760053891B /* Build configuration list for PBXProject "HarmonySolver" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

@@ -8,30 +8,38 @@
 
 import Foundation
 
-func ==(lhs: FourPartChord, rhs: FourPartChord) -> Bool {
+public func ==(lhs: FourPartChord, rhs: FourPartChord) -> Bool {
     return lhs.chord == rhs.chord && lhs.values == rhs.values
 }
 
-struct FourPartChord : Equatable, Printable, DebugPrintable {
-    let chord: Chord
-    let bass: Note
-    let tenor: Note
-    let alto: Note
-    let soprano: Note
+public struct FourPartChord : Equatable, Printable, DebugPrintable {
+    public let chord: Chord
+    public let bass: Note
+    public let tenor: Note
+    public let alto: Note
+    public let soprano: Note
 
-    var values: [Note] {
+    public init(chord: Chord, bass: Note, tenor: Note, alto: Note, soprano: Note) {
+        self.chord = chord
+        self.bass = bass
+        self.tenor = tenor
+        self.alto = alto
+        self.soprano = soprano
+    }
+
+    public var values: [Note] {
         return [bass, tenor, alto, soprano]
     }
 
-    var description: String {
+    public var description: String {
         return "\(Note(absoluteValue: chord.noteType.value)) \(bass) \(tenor) \(alto) \(soprano)"
     }
 
-    var debugDescription: String {
+    public var debugDescription: String {
         return self.description
     }
 
-    func transposedTo(noteType: NoteType) -> FourPartChord {
+    public func transposedTo(noteType: NoteType) -> FourPartChord {
         let newValues = self.values.map { Note(absoluteValue: $0.absoluteValue - noteType.value) }
         return FourPartChord(
             chord: self.chord,

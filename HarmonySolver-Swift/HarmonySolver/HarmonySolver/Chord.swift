@@ -8,18 +8,18 @@
 
 import Foundation
 
-func ==(lhs: Chord, rhs: Chord) -> Bool {
+public func ==(lhs: Chord, rhs: Chord) -> Bool {
     return lhs.noteType == rhs.noteType && lhs.semitones == rhs.semitones
 }
 
-struct Chord : Equatable, Printable, DebugPrintable {
-    var semitones: [Int] {
+public struct Chord : Equatable, Printable, DebugPrintable {
+    public var semitones: [Int] {
         return reduce(stepsToOffsets, []) { arr, pair in
             arr + [self.halfStepForScaleStep(pair.0) + pair.1]
         }.sorted { $0 < $1 }
     }
 
-    func halfStepForScaleStep(scaleStep: Int) -> Int {
+    public func halfStepForScaleStep(scaleStep: Int) -> Int {
         switch (scaleStep) {
         case 1: return 0;
         case 2: return 2;
@@ -37,21 +37,22 @@ struct Chord : Equatable, Printable, DebugPrintable {
         case 14: return 23;
         default:
             assert(false, "Chord halfStepForScaleStep: \(scaleStep) scaleStep not supported");
+            return 0
         }
     }
 
     private let stepsToOffsets: [Int:Int] // Maps scale step to offset. [ 1 : 0, 3 : -1, 5 : 0 ] would be a minor chord
-    let noteType: NoteType
+    public let noteType: NoteType
 
-    var description: String {
+    public var description: String {
         return Note(absoluteValue: self.noteType.value).description
     }
 
-    var debugDescription: String {
+    public var debugDescription: String {
         return self.description
     }
 
-    init(_ noteType: NoteType) {
+    public init(_ noteType: NoteType) {
         self.noteType = noteType
         self.stepsToOffsets = [ // Starts as major chord
             1: 0,
@@ -79,51 +80,51 @@ struct Chord : Equatable, Printable, DebugPrintable {
         return Chord(self.noteType, stepsToOffsets: newOffsets)
     }
 
-    var minor: Chord {
+    public var minor: Chord {
         return self.flat(3)
     }
 
-    var major: Chord {
+    public var major: Chord {
         return self.chordBySetting([3 : 0])
     }
 
-    var seven: Chord {
+    public var seven: Chord {
         return self.flat(7)
     }
 
-    var majorSeven: Chord {
+    public var majorSeven: Chord {
         return self.add(7)
     }
 
-    var halfDiminished: Chord {
+    public var halfDiminished: Chord {
         return self.minor.flat(5).flat(7)
     }
 
-    var fullyDiminished: Chord {
+    public var fullyDiminished: Chord {
         return self.minor.flat(5).doubleFlat(7)
     }
 
-    var powerChord: Chord {
+    public var powerChord: Chord {
         return Chord(self.noteType).remove(3)
     }
 
-    func flat(scaleStep: Int) -> Chord {
+    public func flat(scaleStep: Int) -> Chord {
         return self.chordBySetting([scaleStep : -1])
     }
 
-    func doubleFlat(scaleStep: Int) -> Chord {
+    public func doubleFlat(scaleStep: Int) -> Chord {
         return self.chordBySetting([scaleStep : -2])
     }
 
-    func sharp(scaleStep: Int) -> Chord {
+    public func sharp(scaleStep: Int) -> Chord {
         return self.chordBySetting([scaleStep : 1])
     }
 
-    func add(scaleStep: Int) -> Chord {
+    public func add(scaleStep: Int) -> Chord {
         return self.chordBySetting([scaleStep : 0])
     }
 
-    func remove(scaleStep: Int) -> Chord {
+    public func remove(scaleStep: Int) -> Chord {
         return self.chordByRemoving(scaleStep)
     }
 }

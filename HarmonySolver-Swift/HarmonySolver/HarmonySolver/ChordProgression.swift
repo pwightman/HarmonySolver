@@ -8,7 +8,12 @@
 
 import Foundation
 
-struct ChordProgression {
-    let key: Key
-    let chords: [FourPartChord]
+public struct ChordProgression {
+    public let key: Key
+    public let chords: [FourPartChord]
+
+    public init(key: Key, chords: [FourPartChord]) {
+        self.key = key
+        self.chords = chords
+    }
 }

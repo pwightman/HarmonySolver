@@ -8,16 +8,16 @@
 
 import Foundation
 
-class LilyPondSerializer {
-    let chords: [FourPartChord]
-    init(chords: [FourPartChord]) {
+public class LilyPondSerializer {
+    public let chords: [FourPartChord]
+    public init(chords: [FourPartChord]) {
         self.chords = chords
     }
 
-    func toString() -> String {
+    public func toString() -> String {
         let topNotes = join(" ", chords.map { "<\(self.lilyPondNoteForNote($0.alto)) \(self.lilyPondNoteForNote($0.soprano))>" })
         let bottomNotes = join(" ", chords.map { "<\(self.lilyPondNoteForNote($0.bass)) \(self.lilyPondNoteForNote($0.tenor))>" })
-        let path = NSBundle.mainBundle().pathForResource("LilyPondTemplate", ofType: "ly")!
+        let path = NSBundle(forClass: LilyPondSerializer.self).pathForResource("LilyPondTemplate", ofType: "ly")!
         var template = String(contentsOfFile: path, encoding: NSUTF8StringEncoding, error: nil)!
         template = (template as NSString).stringByReplacingOccurrencesOfString("{{treble}}", withString: topNotes)
         template = (template as NSString).stringByReplacingOccurrencesOfString("{{bass}}", withString: bottomNotes)

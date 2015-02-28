@@ -8,22 +8,11 @@
 
 import Foundation
 
-extension Array {
-    func shuffled() -> [T] {
-        var list = self
-        for i in 0..<(list.count - 1) {
-            let j = Int(arc4random_uniform(UInt32(list.count - i))) + i
-            swap(&list[i], &list[j])
-        }
-        return list
-    }
-}
+public struct ChordEnumerator : SequenceType {
+    public let chord: Chord
+    public let randomize: Bool
 
-struct ChordEnumerator : SequenceType {
-    let chord: Chord
-    let randomize: Bool
-
-    init(chord: Chord, randomize: Bool = false) {
+    public init(chord: Chord, randomize: Bool = false) {
         self.chord = chord
         self.randomize = randomize
     }
@@ -49,7 +38,7 @@ struct ChordEnumerator : SequenceType {
         return Note(.C,5).absoluteValue...Note(.G,6).absoluteValue
     }
 
-    func generate() -> GeneratorOf<FourPartChord> {
+    public func generate() -> GeneratorOf<FourPartChord> {
         let bassNotes = notesInRange(bassRange)
         let tenorNotes = notesInRange(tenorRange)
         let altoNotes = notesInRange(altoRange)

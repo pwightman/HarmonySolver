@@ -7,43 +7,20 @@
 //
 
 import UIKit
-
+import MIKMIDI
+import Solver
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-
         println("Starting")
 
-        let key = Key(.C)
 
-        let enumerators = [
-            key.two,
-            key.five,
-            key.one,
-        ].map { ChordEnumerator(chord: $0, randomize: true) }
 
-        var solverGenerator = RecursiveSolver(
-            enumerators: enumerators,
-            chordConstraint:
-                  noVoiceCrossingConstraint
-                & completeChordConstraint
-                & noMoreThanOneOctaveBetweenVoices,
-            //                & allowRootNotes([0, 7]), // This causes no matches to be found, Bug? :-/
-            adjacentConstraint:
-            //                  noParallelFifthsConstraint // This is buggy
-                smallJumpsConstraint(12)
-        ).generate()
 
-        while let solution = solverGenerator.next() {
-            let serializer = LilyPondSerializer(chords: solution)
-            println(serializer.toString())
-        }
-        
         println("Done")
         return true
     }

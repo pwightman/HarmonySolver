@@ -10,11 +10,11 @@ import Foundation
 
 //typealias NoteType = Int
 
-func ==(lhs: NoteType, rhs: NoteType) -> Bool {
+public func ==(lhs: NoteType, rhs: NoteType) -> Bool {
     return lhs.value == rhs.value
 }
 
-enum NoteType : Hashable {
+public enum NoteType : Hashable {
     case C
     case CSharp
     case DFlat
@@ -33,7 +33,7 @@ enum NoteType : Hashable {
     case BFlat
     case B
 
-    init(fromValue value: Int) {
+    public init(fromValue value: Int) {
         switch value % 12 {
         case 0: self = .C
         case 1: self = .CSharp
@@ -51,7 +51,7 @@ enum NoteType : Hashable {
         }
     }
 
-    var value: Int {
+    public var value: Int {
         switch self {
         case .C: return 0
         case .CSharp, .DFlat: return 1
@@ -68,49 +68,49 @@ enum NoteType : Hashable {
         }
     }
 
-    var hashValue: Int {
+    public var hashValue: Int {
         return self.value.hashValue
     }
 
-    func cycledBy(distance: Int) -> NoteType {
+    public func cycledBy(distance: Int) -> NoteType {
         return NoteType(fromValue: self.value + distance)
     }
 }
 
-func ==(lhs: Note, rhs: Note) -> Bool {
+public func ==(lhs: Note, rhs: Note) -> Bool {
     return lhs.absoluteValue == rhs.absoluteValue
 }
 
-func <(lhs: Note, rhs: Note) -> Bool {
+public func <(lhs: Note, rhs: Note) -> Bool {
     return lhs.absoluteValue < rhs.absoluteValue
 }
 
-struct Note : Hashable, Comparable, Printable, DebugPrintable {
-    let octave: Int
-    let noteType: NoteType
-    let absoluteValue: Int
+public struct Note : Hashable, Comparable, Printable, DebugPrintable {
+    public let octave: Int
+    public let noteType: NoteType
+    public let absoluteValue: Int
 
-    init(absoluteValue: Int) {
+    public init(absoluteValue: Int) {
         self.absoluteValue = absoluteValue
         self.octave = absoluteValue / 12
         self.noteType = NoteType(fromValue: absoluteValue)
     }
 
-    init(_ noteType: NoteType, _ octave: Int) {
+    public init(_ noteType: NoteType, _ octave: Int) {
         self.absoluteValue = octave * 12 + noteType.value
         self.noteType = noteType
         self.octave = octave
     }
 
-    var description: String {
+    public var description: String {
         return "\(self.stringForNoteType)\(octave)"
     }
 
-    var debugDescription: String {
+    public var debugDescription: String {
         return self.description
     }
 
-    var stringForNoteType: String {
+    public var stringForNoteType: String {
         switch noteType {
         case .C: return "C"
         case .CSharp: return "C#"
@@ -132,7 +132,7 @@ struct Note : Hashable, Comparable, Printable, DebugPrintable {
         }
     }
 
-    var hashValue: Int {
+    public var hashValue: Int {
         return self.absoluteValue.hashValue
     }
 }

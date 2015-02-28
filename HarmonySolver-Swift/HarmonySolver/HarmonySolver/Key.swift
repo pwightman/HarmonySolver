@@ -8,48 +8,48 @@
 
 import Foundation
 
-struct Key {
-    let isMinor: Bool
-    let noteType: NoteType
+public struct Key {
+    public let isMinor: Bool
+    public let noteType: NoteType
 
-    init(_ noteType: NoteType, minor: Bool = false) {
+    public init(_ noteType: NoteType, minor: Bool = false) {
         self.noteType = noteType
         self.isMinor = minor
     }
 
-    var minor: Key {
+    public var minor: Key {
         return Key(self.noteType, minor: true)
     }
 
-    var major: Key {
+    public var major: Key {
         return Key(self.noteType, minor: false)
     }
 
-    var one: Chord {
+    public var one: Chord {
         return Chord(self.noteType)
     }
 
-    var two: Chord {
+    public var two: Chord {
         return Chord(self.noteType.cycledBy(2)).minor
     }
 
-    var three: Chord {
+    public var three: Chord {
         return Chord(self.noteType.cycledBy(4)).minor
     }
 
-    var four: Chord {
+    public var four: Chord {
         return Chord(self.noteType.cycledBy(5))
     }
 
-    var five: Chord {
+    public var five: Chord {
         return Chord(self.noteType.cycledBy(7))
     }
 
-    var six: Chord {
+    public var six: Chord {
         return Chord(self.noteType.cycledBy(9)).minor
     }
 
-    var seven: Chord {
+    public var seven: Chord {
         return Chord(self.noteType.cycledBy(11)).fullyDiminished
     }
 }
