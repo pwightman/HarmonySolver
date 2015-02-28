@@ -71,6 +71,7 @@ public protocol SolverStrategy : SequenceType {
     var enumerators: [ChordEnumerator] { get }
     var chordConstraint: ChordConstraint { get }
     var adjacentChordConstraint: AdjacentChordConstraint  { get }
+    init(enumerators: [ChordEnumerator], chordConstraint: ChordConstraint, adjacentConstraint: AdjacentChordConstraint)
 }
 
 public struct PermutationSolver : SolverStrategy {
