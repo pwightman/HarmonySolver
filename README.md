@@ -1,6 +1,4 @@
-## Four-Part Harmony Solver in Objective-C and Swift
-
-**Note**: The Swift version is more functional than the Objective-C version but is not yet documented.
+## Four-Part Harmony Solver in Swift
 
 ![](http://d.pr/i/gAmK/gpO0xwg6+)
 
@@ -10,173 +8,152 @@ Given a set of abstract chords, such as Dm -> G7 -> C (or ii -> V7 -> I in the k
 
 ## Notes
 
-`HSNote` objects define absolute pitches as used by MIDI, where the notation C5 denotes the note C at the 5th octave. For frame of reference, C5 is considered middle C. Notes are also given an absolute numeric value that uniquely identifies a given note at a specific octave. C0 is 0 and C5 is 60. [See diagram](http://www.midimountain.com/midi/midi_note_numbers.html).
+`NoteType` is an enum representing all the note types (C, C#...B). The `value` property returns
+a number 0, 1,...11, representing C, C#,...B respectively.
 
-```objc
-HSNote *note = [HSNote noteWithType:HSNoteC octave:5];
-[note absoluteValue];  // => 60
+```swift
+let noteType = NoteType.C
+noteType.value // 0
+```
+
+`Note` objects define absolute pitches as used by MIDI, where the notation C5 denotes the note C at the 5th octave. For frame of reference, C5 is considered middle C. Notes are also given an absolute numeric value that uniquely identifies a given note at a specific octave. C0 is 0 and C5 is 60. [See diagram](http://www.midimountain.com/midi/midi_note_numbers.html).
+
+```swift
+Note(.C, 5)
+Note(absoluteValue: 60)
 ```
 
 ## Abstract Chords
 
-Abstract chords are constructed using idiomatic messages on `HSChord` objects, which ought to be recognizable to any trained musician. Each chord (A - G) starts as a 1-3-5 major triad. Subsequent methods such as `minor`, `seven`, and `flat:` modify the initial triad.
+Abstract chords are constructed using `Chord` objects. Each chord (A - G) starts as a 1-3-5 major triad. Subsequent method and properties such as `minor`, `seven`, and `flat` modify the initial triad.
 
 ```objc
-HSChord *chord = [HSChord G];
-HSChord *chord = [[HSChord G] minor];
-HSChord *chord = [[[HSChord G] minor] seven];
-HSChord *chord = [[[[HSChord G] minor] seven] flat:9];
+Chord(.G)
+Chord(.G).minor.seven.flat(9)
 
-HSChord *chord = [[HSChord G] minor];
+Chord(.G).minor
 // same as
-HSChord *chord = [[HSChord G] flat:3];
+Chord(.G).flat(3)
 
-HSChord *chord = [[HSChord G] seven];
+Chord(.G).seven
 // same as
-HSChord *chord = [[HSChord G] flat:7];
+Chord(.G).flat(7)
 ```
 
-Calling `halfSteps` returns the half-step interval from the root. (0 - 23)
+Calling `semitones` returns all half-step intervals in the chord from the root. (0 - 23)
 
 ```objc
-NSArray *tones = [[HSChord G] halfSteps];         // @[ @0, @4, @7 ]
-NSArray *tones = [[[HSChord G] seven] halfSteps]; // @[ @0, @4, @7, @10 ]
-NSArray *tones = [[[HSChord G] nine] halfSteps];  // @[ @0, @4, @7, @14 ]
+Chord(.G).semitones       // [ 0, 4, 7 ]
+Chord(.G).seven.semitones // [ 0, 4, 7, 10 ]
+Chord(.G).nine.semitones  // [ 0, 4, 7, 14 ]
 ```
 
-The `root` property returns an integer between 0 - 11 where 0 is C, 1 is C#, etc. These values correspond to C0 through B0 as defined by `HSNote`.
+The `noteType` property returns a `NoteType` enum representing the root note of the chord.
 
 ```objc
-[HSChord G].root; // 7
+Chord(.G).noteType.value // 7
 ```
 
 ## Four-Part Chords
 
-`HSFourPartChord` is a concrete chord, made up of [MIDI absolute values](http://www.midimountain.com/midi/midi_note_numbers.html) for each voice.
+`FourPartChord` is a concrete chord, made up of an abstract chord and concrete
+`Note` objects for each voice.
 
 ```objc
-HSFourPartChord *chord = [SHFourPartChord fourPartChordWithChord:[HSChord C]
-                                                            bass:48    // C4
-                                                           tenor:55    // G4
-                                                            alto:60    // C5
-                                                         soprano:64];  // E5
+let chord = FourPartChord(
+    chord:   Chord(.C)
+    bass:    Note(.C,4)
+    tenor:   Note(.G,4)
+    alto:    Note(.C,5)
+    soprano: Note(.E,5)
+)
 ```
-
-`HSNote` objects make building `HSFourPartChord` objects more idiomatic.
-
-```objc
-HSNote *bass    = [HSNote noteWithType:HSNoteTypeC octave:4];
-HSNote *tenor   = [HSNote noteWithType:HSNoteTypeG octave:4];
-HSNote *alto    = [HSNote noteWithType:HSNoteTypeC octave:5];
-HSNote *soprano = [HSNote noteWithType:HSNoteTypeE octave:5];
-
-HSFourPartChord *chord = [HSFourPartChord fourPartChordWithChord: [HSChord C]
-                                                            bass: bass.absoluteValue
-                                                           tenor: tenor.absoluteValue
-                                                            alto: alto.absoluteValue
-                                                         soprano: soprano.absoluteValue];
-```
-
 
 ### Four-Part Chord Enumerator
 
-Enumerates through all possible four-part chord arrangements for the given chord, including invalid/bad style ones. 
-Rejection should happen later with constraints, not at this stage.
+Enumerates through all possible four-part chord arrangements for the given chord, including invalid/bad style ones.
 
 ```objc
-HSFourPartChordEnumerator *enumerator = [SHFourPartChordEnumerator enumeratorForChord:[HSChord G]];
-HSFourPartChord *chord = nil;
-
-while ( (chord = [enumerator nextChord]) ) {
-    // Do something with chord
+let enumerator = ChordEnumerator(chord: Chord(.C))
+for chord in enumerator {
+    // Do thing with chord
 }
 ```
 
-If some notes in the chord should hold static through enumeration (in the case of "starting pitches", for example), setting them explicitly will cause the enumerator not to move them. As such, setting all four voices explictly would result in a single variation.
+## Constraints
 
-```objc
-HSFourPartChordEnumerator *enumerator = [SHFourPartChordEnumerator enumeratorForChord:[HSChord g]];
-enumerator.bassNote    = @1;
-enumerator.tenorNote   = @14;
-enumerator.sopranoNote = @37;
+`ChordConstraint`s take in one `FourPartChord` object and return `true` or `false`.
+Many constraints are already built, such as `completeChordConstraint` which returns
+`true` if all notes in a chord are represented in the `FourPartChord`, `noVoiceCrossingConstraint`
+which returns `true` if none of the voices cross, and many more.
+
+```swift
+var chord = FourPartChord(
+    chord:   Chord(.C)
+    bass:    Note(.C,4)
+    tenor:   Note(.G,4)
+    alto:    Note(.C,5)
+    soprano: Note(.E,5)
+)
+
+completeChordConstraint(chord) // true
+
+chord = FourPartChord(
+    chord:   Chord(.C)
+    bass:    Note(.C,4)
+    tenor:   Note(.G,4)
+    alto:    Note(.C,5)
+    soprano: Note(.C,6)
+)
+
+completeChordConstraint(chord) // false
 ```
 
----
+Constraints can be composed with the `&` operator:
 
-**NOTE**: Only parts of the rest of this API have been implemented and are definitely subject to change. Feedback welcome.
-
----
-
-### Solver
-
-The solver solves for an array of `HSFourPartEnumerator` objects.
-
-```objc
-NSArray *enumerators = ...;
-HSFourPartSolver *solver = [HSFourPartSolver solverForEnumerators:enumerators];
+```swift
+let constraint = completeChordConstraint & noVoiceCrossingConstraint
+constraint(chord)
 ```
 
-Constraints of various types can then be added to the solver. These constraint blocks take in chord(s) and return either `YES` or `NO` to indicate whether the chord(s) satisfy the constraint.
+There are also `AdjacentChordConstraint` blocks to verify cross-chord constraints
+such as parallel fifths or constraining how far a voice can jump between chords.
 
-#### Single Chord Constraints
+## Solver
 
-```objc
-[solver addChordConstraint:^BOOL (HSFourPartChord *chord) {
+Solving is done by using an object that conforms to the `SolverStrategy` protocol. There is
+currently `PermutationSolver` (inefficient for many chords) and `RecursiveSolver`(fairly
+efficient). A `SolverStrategy`, given an array of enumerators for each chord and
+constraints, can produce a set of chords that pass all constraints.
 
-}];
+```swift
+var solver = RecursiveSolver(
+    enumerators: enumerators,
+    chordConstraint:
+        noVoiceCrossingConstraint &
+        completeChordConstraint &
+        noMoreThanOneOctaveBetweenVoices,
+    adjacentConstraint:
+        not(parallelIntervalConstraint(7)) &
+        not(parallelIntervalConstraint(5)) &
+        smallJumpsConstraint(7)
+)
+
+if let chords = solver.generate().next {
+    // chords is a [FourPartChord] which passes all constraints
+}
 ```
 
-#### Adjacent chord constraints
+### Helper: Key
 
-```objc
-[solver addAdjacentChordConstraint:^BOOL (HSFourPartChord *firstChord, HSFourPartChord *secondChord) {
+Key allows you to express chords in terms of ii-V-I (two-five-one) instead of D-G-C. Basic semantics of the key are applied as well, such as the two chord being minor.
 
-}];
+```swift
+let key = Key(.C)
+key.two // Chord(.D).minor
+key.five // Chord(.G)
+key.one // Chord(.C)
 ```
-
-#### Consecutive Chord Constraints
-
-Constraints on chord groups larger than two can use the `addConsecutiveChordConstraintWithWidth:block:` method. If the `width` is larger than the number of chords in the `HSChordSet` being solved, these constraints are ignored and a warning is printed to the console.
-
-```objc
-[solver addConsecutiveChordConstraintWithWidth:3 block:^BOOL (NSArray *chords) {
-
-}];
-```
-
-#### Solutions
-
-Calling `nextSolution` on the solver returns a solution as an array of `HSFourPartChord` objects with the same length as the given array of `HSFourPartChordEnumerator` objects. A solution is defined as a set of `HSFourPartChord` objects for which all constraint blocks return `YES`.
-
-```objc
-NSArray *solution = [solver nextSolution];
-```
-
-`nextSolution` can be called multiple times as multiple solutions may exist. It will return `nil` when there are no more solutions.
-
-### Helper: HSKey
-
-HSKey allows you to express chords in terms of ii-V-I (two-five-one) instead of D-G-C. Basic semantics of the key are applied as well, such as the two chord being minor.
-
-```objc
-HSKey *key = [HSKey keyWithType:HSKeyC];
-HSChord *chord = [key twoChord];    // returns [[HSChord D] minor];
-HSChord *chord = [key fiveChord];   // returns [HSChord G];     
-HSChord *chord = [key oneChord];    // returns [HSChord C];
-```
-
-This could be extended to advanced chord types as well.
-
-```objc
-HSKey *key = [HSKey keyWithType:HSKeyCMinor];
-```
-
-## TODO
-
-* Finish the solver.
-* Finish writing constraint blocks for the [different rules](http://d.pr/f/6ad9/5k6SrIi8+).
-* Write HSKey.
-* Perhaps build a simple UI in the demo project to show the notes (though this could easily be an open-sourced library in and of itself)
 
 ## Roadmap
 
@@ -186,6 +163,6 @@ I also plan to open source a UI library for laying out notes on a staff which wo
 
 ## Contributing
 
-You are welcome to help out with the different TODO list items. Be sure to write tests. This project uses Xcode \<redacted\>.
+You are welcome to help out with the different TODO list items. Be sure to write tests.
 
 Built by [Parker Wightman](https://github.com/pwightman) ([@parkerwightman](https://twitter.com/parkerwightman)), feel free to ask questions on Twitter or via issues.
