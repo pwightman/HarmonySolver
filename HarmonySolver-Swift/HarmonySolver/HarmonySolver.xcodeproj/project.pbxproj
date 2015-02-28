@@ -7,19 +7,24 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5F056EBB1A9A3B500049450A /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F5831FF1A8FA2F7004E2608 /* Note.swift */; };
-		5F056EBC1A9A3B500049450A /* Chord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F5832011A8FA301004E2608 /* Chord.swift */; };
-		5F056EBD1A9A3B500049450A /* ChordProgression.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F7EC39B1A926FB2006CDBF2 /* ChordProgression.swift */; };
-		5F056EBE1A9A3B500049450A /* FourPartChord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F5832031A8FA309004E2608 /* FourPartChord.swift */; };
-		5F056EBF1A9A3B500049450A /* ChordEnumerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F5832051A8FA31D004E2608 /* ChordEnumerator.swift */; };
-		5F056EC01A9A3B500049450A /* HarmonySolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F5832071A8FA329004E2608 /* HarmonySolver.swift */; };
-		5F056EC11A9A3B500049450A /* Key.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F7EC3991A901A84006CDBF2 /* Key.swift */; };
-		5F056EC21A9A3B500049450A /* PermutationGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F7EC39D1A9315CA006CDBF2 /* PermutationGenerator.swift */; };
-		5F056EC31A9A3B500049450A /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F5832091A8FA3B7004E2608 /* Util.swift */; };
-		5F056ECD1A9A3B600049450A /* LilyPondSerializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F7EC3961A901A08006CDBF2 /* LilyPondSerializer.swift */; };
-		5F056ECE1A9A3B600049450A /* LilyPondTemplate.ly in Resources */ = {isa = PBXBuildFile; fileRef = 5F58320B1A8FAA2D004E2608 /* LilyPondTemplate.ly */; };
 		5F056ED11A9A4F000049450A /* soundfont-stripped.sf2 in Resources */ = {isa = PBXBuildFile; fileRef = 5F056ED01A9A4EB50049450A /* soundfont-stripped.sf2 */; };
 		5F056ED41A9D5C090049450A /* correct-four-part.mid in Resources */ = {isa = PBXBuildFile; fileRef = 5F056ED31A9D5C090049450A /* correct-four-part.mid */; };
+		5F53470C1AA27CE1000CF01F /* Chord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F5346FC1AA27CE1000CF01F /* Chord.swift */; };
+		5F53470D1AA27CE1000CF01F /* ChordEnumerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F5346FD1AA27CE1000CF01F /* ChordEnumerator.swift */; };
+		5F53470E1AA27CE1000CF01F /* ChordProgression.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F5346FE1AA27CE1000CF01F /* ChordProgression.swift */; };
+		5F53470F1AA27CE1000CF01F /* Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F5346FF1AA27CE1000CF01F /* Constraints.swift */; };
+		5F5347101AA27CE1000CF01F /* FourPartChord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F5347001AA27CE1000CF01F /* FourPartChord.swift */; };
+		5F5347111AA27CE1000CF01F /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5F5347011AA27CE1000CF01F /* Info.plist */; };
+		5F5347121AA27CE1000CF01F /* Key.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F5347021AA27CE1000CF01F /* Key.swift */; };
+		5F5347131AA27CE1000CF01F /* LilyPondSerializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F5347031AA27CE1000CF01F /* LilyPondSerializer.swift */; };
+		5F5347141AA27CE1000CF01F /* LilyPondTemplate.ly in Resources */ = {isa = PBXBuildFile; fileRef = 5F5347041AA27CE1000CF01F /* LilyPondTemplate.ly */; };
+		5F5347151AA27CE1000CF01F /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F5347051AA27CE1000CF01F /* Note.swift */; };
+		5F5347161AA27CE1000CF01F /* PermutationGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F5347061AA27CE1000CF01F /* PermutationGenerator.swift */; };
+		5F5347171AA27CE1000CF01F /* PermutationSolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F5347071AA27CE1000CF01F /* PermutationSolver.swift */; };
+		5F5347181AA27CE1000CF01F /* RecursiveSolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F5347081AA27CE1000CF01F /* RecursiveSolver.swift */; };
+		5F5347191AA27CE1000CF01F /* Solver.h in Headers */ = {isa = PBXBuildFile; fileRef = 5F5347091AA27CE1000CF01F /* Solver.h */; };
+		5F53471A1AA27CE1000CF01F /* SolverStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F53470A1AA27CE1000CF01F /* SolverStrategy.swift */; };
+		5F53471B1AA27CE1000CF01F /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F53470B1AA27CE1000CF01F /* Util.swift */; };
 		5FB7C58F1A99A7B4003C24B3 /* MIKMIDI.framework in Copy Files (1 item) */ = {isa = PBXBuildFile; fileRef = 5FB7C58B1A99A74F003C24B3 /* MIKMIDI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		5FB7C59A1A9A3A63003C24B3 /* Solver.h in Headers */ = {isa = PBXBuildFile; fileRef = 5FB7C5991A9A3A63003C24B3 /* Solver.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5FB7C5A01A9A3A63003C24B3 /* Solver.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FB7C5951A9A3A63003C24B3 /* Solver.framework */; };
@@ -105,17 +110,22 @@
 /* Begin PBXFileReference section */
 		5F056ED01A9A4EB50049450A /* soundfont-stripped.sf2 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "soundfont-stripped.sf2"; sourceTree = "<group>"; };
 		5F056ED31A9D5C090049450A /* correct-four-part.mid */ = {isa = PBXFileReference; lastKnownFileType = audio.midi; path = "correct-four-part.mid"; sourceTree = "<group>"; };
-		5F5831FF1A8FA2F7004E2608 /* Note.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Note.swift; path = ../HarmonySolver/Note.swift; sourceTree = "<group>"; };
-		5F5832011A8FA301004E2608 /* Chord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Chord.swift; path = ../HarmonySolver/Chord.swift; sourceTree = "<group>"; };
-		5F5832031A8FA309004E2608 /* FourPartChord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FourPartChord.swift; path = ../HarmonySolver/FourPartChord.swift; sourceTree = "<group>"; };
-		5F5832051A8FA31D004E2608 /* ChordEnumerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChordEnumerator.swift; path = ../HarmonySolver/ChordEnumerator.swift; sourceTree = "<group>"; };
-		5F5832071A8FA329004E2608 /* HarmonySolver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HarmonySolver.swift; path = ../HarmonySolver/HarmonySolver.swift; sourceTree = "<group>"; };
-		5F5832091A8FA3B7004E2608 /* Util.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Util.swift; path = ../HarmonySolver/Util.swift; sourceTree = "<group>"; };
-		5F58320B1A8FAA2D004E2608 /* LilyPondTemplate.ly */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LilyPondTemplate.ly; sourceTree = "<group>"; };
-		5F7EC3961A901A08006CDBF2 /* LilyPondSerializer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LilyPondSerializer.swift; sourceTree = "<group>"; };
-		5F7EC3991A901A84006CDBF2 /* Key.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Key.swift; path = ../HarmonySolver/Key.swift; sourceTree = "<group>"; };
-		5F7EC39B1A926FB2006CDBF2 /* ChordProgression.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChordProgression.swift; path = ../HarmonySolver/ChordProgression.swift; sourceTree = "<group>"; };
-		5F7EC39D1A9315CA006CDBF2 /* PermutationGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PermutationGenerator.swift; path = ../HarmonySolver/PermutationGenerator.swift; sourceTree = "<group>"; };
+		5F5346FC1AA27CE1000CF01F /* Chord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Chord.swift; sourceTree = "<group>"; };
+		5F5346FD1AA27CE1000CF01F /* ChordEnumerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChordEnumerator.swift; sourceTree = "<group>"; };
+		5F5346FE1AA27CE1000CF01F /* ChordProgression.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChordProgression.swift; sourceTree = "<group>"; };
+		5F5346FF1AA27CE1000CF01F /* Constraints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constraints.swift; sourceTree = "<group>"; };
+		5F5347001AA27CE1000CF01F /* FourPartChord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FourPartChord.swift; sourceTree = "<group>"; };
+		5F5347011AA27CE1000CF01F /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = ../Solver/Info.plist; sourceTree = "<group>"; };
+		5F5347021AA27CE1000CF01F /* Key.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Key.swift; sourceTree = "<group>"; };
+		5F5347031AA27CE1000CF01F /* LilyPondSerializer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LilyPondSerializer.swift; path = ../Solver/LilyPondSerializer.swift; sourceTree = "<group>"; };
+		5F5347041AA27CE1000CF01F /* LilyPondTemplate.ly */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = LilyPondTemplate.ly; path = ../Solver/LilyPondTemplate.ly; sourceTree = "<group>"; };
+		5F5347051AA27CE1000CF01F /* Note.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
+		5F5347061AA27CE1000CF01F /* PermutationGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PermutationGenerator.swift; sourceTree = "<group>"; };
+		5F5347071AA27CE1000CF01F /* PermutationSolver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PermutationSolver.swift; sourceTree = "<group>"; };
+		5F5347081AA27CE1000CF01F /* RecursiveSolver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecursiveSolver.swift; sourceTree = "<group>"; };
+		5F5347091AA27CE1000CF01F /* Solver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Solver.h; sourceTree = "<group>"; };
+		5F53470A1AA27CE1000CF01F /* SolverStrategy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SolverStrategy.swift; sourceTree = "<group>"; };
+		5F53470B1AA27CE1000CF01F /* Util.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
 		5FB7C5831A99A74F003C24B3 /* MIKMIDI.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = MIKMIDI.xcodeproj; path = MIKMIDI/Framework/MIKMIDI.xcodeproj; sourceTree = "<group>"; };
 		5FB7C5951A9A3A63003C24B3 /* Solver.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Solver.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FB7C5981A9A3A63003C24B3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -173,8 +183,9 @@
 		5F7EC3981A901A0E006CDBF2 /* LilyPond Serializer */ = {
 			isa = PBXGroup;
 			children = (
-				5F7EC3961A901A08006CDBF2 /* LilyPondSerializer.swift */,
-				5F58320B1A8FAA2D004E2608 /* LilyPondTemplate.ly */,
+				5F5347031AA27CE1000CF01F /* LilyPondSerializer.swift */,
+				5F5347041AA27CE1000CF01F /* LilyPondTemplate.ly */,
+				5F5347011AA27CE1000CF01F /* Info.plist */,
 			);
 			name = "LilyPond Serializer";
 			path = ../HarmonySolver;
@@ -192,15 +203,19 @@
 		5FB7C5961A9A3A63003C24B3 /* Solver */ = {
 			isa = PBXGroup;
 			children = (
-				5F5831FF1A8FA2F7004E2608 /* Note.swift */,
-				5F5832011A8FA301004E2608 /* Chord.swift */,
-				5F7EC39B1A926FB2006CDBF2 /* ChordProgression.swift */,
-				5F5832031A8FA309004E2608 /* FourPartChord.swift */,
-				5F5832051A8FA31D004E2608 /* ChordEnumerator.swift */,
-				5F5832071A8FA329004E2608 /* HarmonySolver.swift */,
-				5F7EC3991A901A84006CDBF2 /* Key.swift */,
-				5F7EC39D1A9315CA006CDBF2 /* PermutationGenerator.swift */,
-				5F5832091A8FA3B7004E2608 /* Util.swift */,
+				5F5346FC1AA27CE1000CF01F /* Chord.swift */,
+				5F5346FD1AA27CE1000CF01F /* ChordEnumerator.swift */,
+				5F5346FE1AA27CE1000CF01F /* ChordProgression.swift */,
+				5F5346FF1AA27CE1000CF01F /* Constraints.swift */,
+				5F5347001AA27CE1000CF01F /* FourPartChord.swift */,
+				5F5347021AA27CE1000CF01F /* Key.swift */,
+				5F5347051AA27CE1000CF01F /* Note.swift */,
+				5F5347061AA27CE1000CF01F /* PermutationGenerator.swift */,
+				5F5347071AA27CE1000CF01F /* PermutationSolver.swift */,
+				5F5347081AA27CE1000CF01F /* RecursiveSolver.swift */,
+				5F5347091AA27CE1000CF01F /* Solver.h */,
+				5F53470A1AA27CE1000CF01F /* SolverStrategy.swift */,
+				5F53470B1AA27CE1000CF01F /* Util.swift */,
 				5F7EC3981A901A0E006CDBF2 /* LilyPond Serializer */,
 				5FB7C5991A9A3A63003C24B3 /* Solver.h */,
 				5FB7C5971A9A3A63003C24B3 /* Supporting Files */,
@@ -305,6 +320,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5FB7C59A1A9A3A63003C24B3 /* Solver.h in Headers */,
+				5F5347191AA27CE1000CF01F /* Solver.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -460,7 +476,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5F056ECE1A9A3B600049450A /* LilyPondTemplate.ly in Resources */,
+				5F5347111AA27CE1000CF01F /* Info.plist in Resources */,
+				5F5347141AA27CE1000CF01F /* LilyPondTemplate.ly in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -498,16 +515,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5F056EC11A9A3B500049450A /* Key.swift in Sources */,
-				5F056EC31A9A3B500049450A /* Util.swift in Sources */,
-				5F056ECD1A9A3B600049450A /* LilyPondSerializer.swift in Sources */,
-				5F056EBF1A9A3B500049450A /* ChordEnumerator.swift in Sources */,
-				5F056EBC1A9A3B500049450A /* Chord.swift in Sources */,
-				5F056EBE1A9A3B500049450A /* FourPartChord.swift in Sources */,
-				5F056EC21A9A3B500049450A /* PermutationGenerator.swift in Sources */,
-				5F056EC01A9A3B500049450A /* HarmonySolver.swift in Sources */,
-				5F056EBD1A9A3B500049450A /* ChordProgression.swift in Sources */,
-				5F056EBB1A9A3B500049450A /* Note.swift in Sources */,
+				5F53470F1AA27CE1000CF01F /* Constraints.swift in Sources */,
+				5F53471A1AA27CE1000CF01F /* SolverStrategy.swift in Sources */,
+				5F53470D1AA27CE1000CF01F /* ChordEnumerator.swift in Sources */,
+				5F53470E1AA27CE1000CF01F /* ChordProgression.swift in Sources */,
+				5F5347151AA27CE1000CF01F /* Note.swift in Sources */,
+				5F5347131AA27CE1000CF01F /* LilyPondSerializer.swift in Sources */,
+				5F5347181AA27CE1000CF01F /* RecursiveSolver.swift in Sources */,
+				5F53471B1AA27CE1000CF01F /* Util.swift in Sources */,
+				5F5347101AA27CE1000CF01F /* FourPartChord.swift in Sources */,
+				5F53470C1AA27CE1000CF01F /* Chord.swift in Sources */,
+				5F5347161AA27CE1000CF01F /* PermutationGenerator.swift in Sources */,
+				5F5347121AA27CE1000CF01F /* Key.swift in Sources */,
+				5F5347171AA27CE1000CF01F /* PermutationSolver.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -589,6 +609,7 @@
 		5FB7C5AF1A9A3A63003C24B3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -604,6 +625,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
@@ -612,6 +634,7 @@
 		5FB7C5B01A9A3A63003C24B3 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;

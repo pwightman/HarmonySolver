@@ -63,20 +63,19 @@ class ViewController: UIViewController {
         let key = Key(.C)
 
         let enumerators = [
-//            key.two,
-//            key.five,
-//            key.four,
-//            key.five,
-//            key.two,
-//            key.seven,
             key.one,
+            key.four,
+            key.two,
+            key.five,
+            key.three,
+            key.six.minor,
+            key.two.add(6),
+            key.six.minor,
+            key.four.add(6),
+            key.four.add(6),
             key.one,
-            key.one,
-            key.one,
-            key.one,
-            key.one,
-            key.one,
-            key.one,
+            key.five,
+            key.one
         ].map { ChordEnumerator(chord: $0, randomize: true) }
 
         var solver = RecursiveSolver(
@@ -84,12 +83,13 @@ class ViewController: UIViewController {
             chordConstraint:
                   noVoiceCrossingConstraint
                 & completeChordConstraint
-                & noMoreThanOneOctaveBetweenVoices,
-//                            & allowRootNotes([0, 7]), // This causes no matches to be found, Bug? :-/
+                & tenorAltoIntervalConstraint(12)
+                & altoSopranoIntervalConstraint(12)
+                & bassTenorIntervalConstraint(19),
             adjacentConstraint:
-                not(parallelIntervalConstraint(7)) & // This is buggy
-                not(parallelIntervalConstraint(5)) & // This is buggy
-                smallJumpsConstraint(7)
+                not(parallelIntervalConstraint(7))
+                & not(parallelIntervalConstraint(5))
+                & smallJumpsConstraint(4)
         )
 
         var generator = solver.generate()

@@ -155,9 +155,9 @@ Key allows you to express chords in terms of ii-V-I (two-five-one) instead of D-
 
 ```swift
 let key = Key(.C)
-key.two // Chord(.D).minor
+key.two  // Chord(.D).minor
 key.five // Chord(.G)
-key.one // Chord(.C)
+key.one  // Chord(.C)
 ```
 
 
@@ -179,12 +179,12 @@ let enumerators = [
 var solver = RecursiveSolver(
     enumerators: enumerators,
     chordConstraint:
-          noVoiceCrossingConstraint
-        & completeChordConstraint
-        & noMoreThanOneOctaveBetweenVoices,
+        noVoiceCrossingConstraint &
+        completeChordConstraint &
+        noMoreThanOneOctaveBetweenVoices,
     adjacentConstraint:
-        not(parallelIntervalConstraint(7)) &
-        not(parallelIntervalConstraint(5)) &
+        not(parallelIntervalConstraint(7)) & // parallel 5ths
+        not(parallelIntervalConstraint(5)) & // parallel 4ths
         smallJumpsConstraint(7)
 )
 
