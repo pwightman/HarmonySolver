@@ -83,6 +83,11 @@ for chord in enumerator {
 ## Constraints
 
 `ChordConstraint`s take in one `FourPartChord` object and return `true` or `false`.
+
+```swift
+typealias ChordConstraint = FourPartChord -> Bool
+```
+
 Many constraints are already built, such as `completeChordConstraint` which returns
 `true` if all notes in a chord are represented in the `FourPartChord`, `noVoiceCrossingConstraint`
 which returns `true` if none of the voices cross, and many more.
@@ -153,6 +158,40 @@ let key = Key(.C)
 key.two // Chord(.D).minor
 key.five // Chord(.G)
 key.one // Chord(.C)
+```
+
+
+## Putting it all together
+
+```
+let key = Key(.C)
+
+let enumerators = [
+    key.two,
+    key.five,
+    key.four,
+    key.five,
+    key.two,
+    key.seven,
+    key.one
+].map { ChordEnumerator(chord: $0) }
+
+var solver = RecursiveSolver(
+    enumerators: enumerators,
+    chordConstraint:
+          noVoiceCrossingConstraint
+        & completeChordConstraint
+        & noMoreThanOneOctaveBetweenVoices,
+    adjacentConstraint:
+        not(parallelIntervalConstraint(7)) &
+        not(parallelIntervalConstraint(5)) &
+        smallJumpsConstraint(7)
+)
+
+var generator = solver.generate()
+if let solution = generator.next() {
+    println(solution)
+}
 ```
 
 ## Roadmap
