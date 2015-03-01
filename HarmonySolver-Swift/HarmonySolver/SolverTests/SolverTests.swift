@@ -109,4 +109,18 @@ class SolverTests: XCTestCase {
         XCTAssertEqual(parallelIntervalConstraint(5)(first, second), true, "")
     }
 
+    func testChordEnumerators() {
+        var enumerator = ChordEnumerator(chord: Chord(.C))
+        XCTAssertEqual(Array(enumerator).count, 1080, "") // 6 bass * 6 tenor * 5 alto * 6 soprano = 1080
+        enumerator.pinnedBassNote = Note(.E,3)
+        XCTAssertEqual(Array(enumerator).count, 180, "")
+        enumerator.pinnedTenorNote = Note(.C,4)
+        XCTAssertEqual(Array(enumerator).count, 30, "")
+        enumerator.pinnedAltoNote = Note(.C,5)
+        XCTAssertEqual(Array(enumerator).count, 6, "")
+        enumerator.pinnedSopranoNote = Note(.C,5)
+        XCTAssertEqual(Array(enumerator).count, 1, "")
+
+    }
+
 }

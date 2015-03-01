@@ -12,6 +12,11 @@ public struct ChordEnumerator : SequenceType {
     public let chord: Chord
     public let randomize: Bool
 
+    public var pinnedBassNote: Note?
+    public var pinnedTenorNote: Note?
+    public var pinnedAltoNote: Note?
+    public var pinnedSopranoNote: Note?
+
     public init(chord: Chord, randomize: Bool = false) {
         self.chord = chord
         self.randomize = randomize
@@ -23,19 +28,35 @@ public struct ChordEnumerator : SequenceType {
     }
 
     var bassRange: Range<Int> {
-        return Note(.E,3).absoluteValue...Note(.C,5).absoluteValue
+        if let note = pinnedBassNote {
+            return Range(start: note.absoluteValue, end: note.absoluteValue + 1)
+        } else {
+            return Note(.E,3).absoluteValue...Note(.C,5).absoluteValue
+        }
     }
 
     var tenorRange: Range<Int> {
-        return Note(.C,4).absoluteValue...Note(.G,5).absoluteValue
+        if let note = pinnedTenorNote {
+            return Range(start: note.absoluteValue, end: note.absoluteValue + 1)
+        } else {
+            return Note(.C,4).absoluteValue...Note(.G,5).absoluteValue
+        }
     }
 
     var altoRange: Range<Int> {
-        return Note(.G,4).absoluteValue...Note(.C,6).absoluteValue
+        if let note = pinnedAltoNote {
+            return Range(start: note.absoluteValue, end: note.absoluteValue + 1)
+        } else {
+            return Note(.G,4).absoluteValue...Note(.C,6).absoluteValue
+        }
     }
 
     var sopranoRange: Range<Int> {
-        return Note(.C,5).absoluteValue...Note(.G,6).absoluteValue
+        if let note = pinnedSopranoNote {
+            return Range(start: note.absoluteValue, end: note.absoluteValue + 1)
+        } else {
+            return Note(.C,5).absoluteValue...Note(.G,6).absoluteValue
+        }
     }
 
     public func generate() -> GeneratorOf<FourPartChord> {
