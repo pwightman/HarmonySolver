@@ -13,6 +13,31 @@ public func ==(lhs: Chord, rhs: Chord) -> Bool {
 }
 
 public struct Chord : Equatable, Printable, DebugPrintable {
+    private let stepsToOffsets: [Int:Int] // Maps scale step to offset. [ 1 : 0, 3 : -1, 5 : 0 ] would be a minor chord
+    public let noteType: NoteType
+
+    public var description: String {
+        return Note(absoluteValue: self.noteType.value).description
+    }
+
+    public var debugDescription: String {
+        return self.description
+    }
+
+    public init(_ noteType: NoteType) {
+        self.noteType = noteType
+        self.stepsToOffsets = [ // Starts as major chord
+            1: 0,
+            3: 0,
+            5: 0
+        ]
+    }
+
+    private init(_ noteType: NoteType, stepsToOffsets: [Int:Int]) {
+        self.noteType = noteType
+        self.stepsToOffsets = stepsToOffsets
+    }
+
     public var semitones: [Int] {
         return reduce(stepsToOffsets, []) { arr, pair in
             arr + [self.halfStepForScaleStep(pair.0) + pair.1]
@@ -41,31 +66,6 @@ public struct Chord : Equatable, Printable, DebugPrintable {
         }
     }
 
-    private let stepsToOffsets: [Int:Int] // Maps scale step to offset. [ 1 : 0, 3 : -1, 5 : 0 ] would be a minor chord
-    public let noteType: NoteType
-
-    public var description: String {
-        return Note(absoluteValue: self.noteType.value).description
-    }
-
-    public var debugDescription: String {
-        return self.description
-    }
-
-    public init(_ noteType: NoteType) {
-        self.noteType = noteType
-        self.stepsToOffsets = [ // Starts as major chord
-            1: 0,
-            3: 0,
-            5: 0
-        ]
-    }
-
-    private init(_ noteType: NoteType, stepsToOffsets: [Int:Int]) {
-        self.noteType = noteType
-        self.stepsToOffsets = stepsToOffsets
-    }
-
     private func chordBySetting(stepsToOffsets: [Int:Int]) -> Chord {
         var newOffsets = self.stepsToOffsets
         for (step, offset) in stepsToOffsets {
@@ -78,6 +78,10 @@ public struct Chord : Equatable, Printable, DebugPrintable {
         var newOffsets = self.stepsToOffsets
         newOffsets.removeValueForKey(scaleStep)
         return Chord(self.noteType, stepsToOffsets: newOffsets)
+    }
+
+    public func transposedTo(noteType: NoteType) -> Chord {
+        return Chord(noteType, stepsToOffsets: self.stepsToOffsets)
     }
 
     public var minor: Chord {
