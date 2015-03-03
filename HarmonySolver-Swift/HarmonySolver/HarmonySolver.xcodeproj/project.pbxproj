@@ -14,7 +14,6 @@
 		5F53470E1AA27CE1000CF01F /* ChordProgression.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F5346FE1AA27CE1000CF01F /* ChordProgression.swift */; };
 		5F53470F1AA27CE1000CF01F /* Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F5346FF1AA27CE1000CF01F /* Constraints.swift */; };
 		5F5347101AA27CE1000CF01F /* FourPartChord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F5347001AA27CE1000CF01F /* FourPartChord.swift */; };
-		5F5347111AA27CE1000CF01F /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5F5347011AA27CE1000CF01F /* Info.plist */; };
 		5F5347121AA27CE1000CF01F /* Key.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F5347021AA27CE1000CF01F /* Key.swift */; };
 		5F5347131AA27CE1000CF01F /* LilyPondSerializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F5347031AA27CE1000CF01F /* LilyPondSerializer.swift */; };
 		5F5347141AA27CE1000CF01F /* LilyPondTemplate.ly in Resources */ = {isa = PBXBuildFile; fileRef = 5F5347041AA27CE1000CF01F /* LilyPondTemplate.ly */; };
@@ -25,6 +24,7 @@
 		5F5347191AA27CE1000CF01F /* Solver.h in Headers */ = {isa = PBXBuildFile; fileRef = 5F5347091AA27CE1000CF01F /* Solver.h */; };
 		5F53471A1AA27CE1000CF01F /* SolverStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F53470A1AA27CE1000CF01F /* SolverStrategy.swift */; };
 		5F53471B1AA27CE1000CF01F /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F53470B1AA27CE1000CF01F /* Util.swift */; };
+		5F53471F1AA28194000CF01F /* StaffView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F53471E1AA28194000CF01F /* StaffView.m */; };
 		5FB7C58F1A99A7B4003C24B3 /* MIKMIDI.framework in Copy Files (1 item) */ = {isa = PBXBuildFile; fileRef = 5FB7C58B1A99A74F003C24B3 /* MIKMIDI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		5FB7C59A1A9A3A63003C24B3 /* Solver.h in Headers */ = {isa = PBXBuildFile; fileRef = 5FB7C5991A9A3A63003C24B3 /* Solver.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5FB7C5A01A9A3A63003C24B3 /* Solver.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FB7C5951A9A3A63003C24B3 /* Solver.framework */; };
@@ -115,7 +115,7 @@
 		5F5346FE1AA27CE1000CF01F /* ChordProgression.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChordProgression.swift; sourceTree = "<group>"; };
 		5F5346FF1AA27CE1000CF01F /* Constraints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constraints.swift; sourceTree = "<group>"; };
 		5F5347001AA27CE1000CF01F /* FourPartChord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FourPartChord.swift; sourceTree = "<group>"; };
-		5F5347011AA27CE1000CF01F /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = ../Solver/Info.plist; sourceTree = "<group>"; };
+		5F5347011AA27CE1000CF01F /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5F5347021AA27CE1000CF01F /* Key.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Key.swift; sourceTree = "<group>"; };
 		5F5347031AA27CE1000CF01F /* LilyPondSerializer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LilyPondSerializer.swift; path = ../Solver/LilyPondSerializer.swift; sourceTree = "<group>"; };
 		5F5347041AA27CE1000CF01F /* LilyPondTemplate.ly */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = LilyPondTemplate.ly; path = ../Solver/LilyPondTemplate.ly; sourceTree = "<group>"; };
@@ -126,9 +126,11 @@
 		5F5347091AA27CE1000CF01F /* Solver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Solver.h; sourceTree = "<group>"; };
 		5F53470A1AA27CE1000CF01F /* SolverStrategy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SolverStrategy.swift; sourceTree = "<group>"; };
 		5F53470B1AA27CE1000CF01F /* Util.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
+		5F53471C1AA28194000CF01F /* HarmonySolver-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HarmonySolver-Bridging-Header.h"; sourceTree = "<group>"; };
+		5F53471D1AA28194000CF01F /* StaffView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StaffView.h; sourceTree = "<group>"; };
+		5F53471E1AA28194000CF01F /* StaffView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StaffView.m; sourceTree = "<group>"; };
 		5FB7C5831A99A74F003C24B3 /* MIKMIDI.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = MIKMIDI.xcodeproj; path = MIKMIDI/Framework/MIKMIDI.xcodeproj; sourceTree = "<group>"; };
 		5FB7C5951A9A3A63003C24B3 /* Solver.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Solver.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		5FB7C5981A9A3A63003C24B3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5FB7C5991A9A3A63003C24B3 /* Solver.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Solver.h; sourceTree = "<group>"; };
 		5FB7C59F1A9A3A63003C24B3 /* SolverTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SolverTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FB7C5A71A9A3A63003C24B3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -185,7 +187,6 @@
 			children = (
 				5F5347031AA27CE1000CF01F /* LilyPondSerializer.swift */,
 				5F5347041AA27CE1000CF01F /* LilyPondTemplate.ly */,
-				5F5347011AA27CE1000CF01F /* Info.plist */,
 			);
 			name = "LilyPond Serializer";
 			path = ../HarmonySolver;
@@ -213,9 +214,9 @@
 				5F5347061AA27CE1000CF01F /* PermutationGenerator.swift */,
 				5F5347071AA27CE1000CF01F /* PermutationSolver.swift */,
 				5F5347081AA27CE1000CF01F /* RecursiveSolver.swift */,
-				5F5347091AA27CE1000CF01F /* Solver.h */,
 				5F53470A1AA27CE1000CF01F /* SolverStrategy.swift */,
 				5F53470B1AA27CE1000CF01F /* Util.swift */,
+				5F5347091AA27CE1000CF01F /* Solver.h */,
 				5F7EC3981A901A0E006CDBF2 /* LilyPond Serializer */,
 				5FB7C5991A9A3A63003C24B3 /* Solver.h */,
 				5FB7C5971A9A3A63003C24B3 /* Supporting Files */,
@@ -226,7 +227,7 @@
 		5FB7C5971A9A3A63003C24B3 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				5FB7C5981A9A3A63003C24B3 /* Info.plist */,
+				5F5347011AA27CE1000CF01F /* Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -280,6 +281,9 @@
 				5FDA685F1A89BC760053891B /* Images.xcassets */,
 				5FDA68611A89BC760053891B /* LaunchScreen.xib */,
 				5FDA68561A89BC760053891B /* Supporting Files */,
+				5F53471D1AA28194000CF01F /* StaffView.h */,
+				5F53471E1AA28194000CF01F /* StaffView.m */,
+				5F53471C1AA28194000CF01F /* HarmonySolver-Bridging-Header.h */,
 			);
 			path = HarmonySolver;
 			sourceTree = "<group>";
@@ -476,7 +480,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5F5347111AA27CE1000CF01F /* Info.plist in Resources */,
 				5F5347141AA27CE1000CF01F /* LilyPondTemplate.ly in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -543,6 +546,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5F53471F1AA28194000CF01F /* StaffView.m in Sources */,
 				5FDA685B1A89BC760053891B /* ViewController.swift in Sources */,
 				5FDA68591A89BC760053891B /* AppDelegate.swift in Sources */,
 			);
@@ -770,6 +774,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/MIKMIDI/Framework/build/Debug-iphoneos",
@@ -779,6 +784,8 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "HarmonySolver/HarmonySolver-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -786,6 +793,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/MIKMIDI/Framework/build/Debug-iphoneos",
@@ -795,6 +803,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "HarmonySolver/HarmonySolver-Bridging-Header.h";
 			};
 			name = Release;
 		};

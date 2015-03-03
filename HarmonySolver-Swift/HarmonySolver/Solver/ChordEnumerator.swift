@@ -8,14 +8,37 @@
 
 import Foundation
 
+public enum VoiceType {
+    case Bass, Tenor, Alto, Soprano
+}
+
+extension VoiceType {
+
+    func noteForChord(chord: FourPartChord) -> Note {
+        switch self {
+        case .Bass: return chord.bass
+        case .Tenor: return chord.tenor
+        case .Alto: return chord.alto
+        case .Soprano: return chord.soprano
+        }
+    }
+
+}
+
+public func pinnedVoiceConstraint(voiceType: VoiceType, note: Note)(_ chord: FourPartChord) -> Bool {
+    if voiceType.noteForChord(chord) == note {
+        return true
+    }
+    return false
+}
+
+public func inversionConstraint(inversion: Int)(_ chord: FourPartChord) -> Bool {
+    return NoteType(fromValue: chord.chord.semitones[inversion]).cycledBy(chord.chord.noteType.value) == chord.bass.noteType
+}
+
 public struct ChordEnumerator : SequenceType {
     public let chord: Chord
     public let randomize: Bool
-
-    public var pinnedBassNote: Note?
-    public var pinnedTenorNote: Note?
-    public var pinnedAltoNote: Note?
-    public var pinnedSopranoNote: Note?
 
     public init(chord: Chord, randomize: Bool = false) {
         self.chord = chord
@@ -28,36 +51,21 @@ public struct ChordEnumerator : SequenceType {
     }
 
     var bassRange: Range<Int> {
-        if let note = pinnedBassNote {
-            return Range(start: note.absoluteValue, end: note.absoluteValue + 1)
-        } else {
-            return Note(.E,3).absoluteValue...Note(.C,5).absoluteValue
-        }
+        return Note(.E,3).absoluteValue...Note(.C,5).absoluteValue
     }
 
     var tenorRange: Range<Int> {
-        if let note = pinnedTenorNote {
-            return Range(start: note.absoluteValue, end: note.absoluteValue + 1)
-        } else {
-            return Note(.C,4).absoluteValue...Note(.G,5).absoluteValue
-        }
+        return Note(.C,4).absoluteValue...Note(.G,5).absoluteValue
     }
 
     var altoRange: Range<Int> {
-        if let note = pinnedAltoNote {
-            return Range(start: note.absoluteValue, end: note.absoluteValue + 1)
-        } else {
-            return Note(.G,4).absoluteValue...Note(.C,6).absoluteValue
-        }
+        return Note(.G,4).absoluteValue...Note(.C,6).absoluteValue
     }
 
     var sopranoRange: Range<Int> {
-        if let note = pinnedSopranoNote {
-            return Range(start: note.absoluteValue, end: note.absoluteValue + 1)
-        } else {
-            return Note(.C,5).absoluteValue...Note(.G,6).absoluteValue
-        }
+        return Note(.C,5).absoluteValue...Note(.G,6).absoluteValue
     }
+
 
     public func generate() -> GeneratorOf<FourPartChord> {
         let bassNotes = notesInRange(bassRange)

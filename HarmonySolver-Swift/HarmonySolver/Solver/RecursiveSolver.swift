@@ -8,12 +8,12 @@
 
 import Foundation
 
-public struct RecursiveSolver : SolverStrategy {
-    public let enumerators: [ChordEnumerator]
+public struct RecursiveSolver<S : SequenceType where S.Generator.Element == FourPartChord> : SequenceType {
+    public let enumerators: [S]
     public let chordConstraint: ChordConstraint
     public let adjacentChordConstraint: AdjacentChordConstraint
 
-    public init(enumerators: [ChordEnumerator], chordConstraint: ChordConstraint, adjacentConstraint: AdjacentChordConstraint) {
+    public init(enumerators: [S], chordConstraint: ChordConstraint, adjacentConstraint: AdjacentChordConstraint) {
         self.enumerators = enumerators
         self.chordConstraint = chordConstraint
         self.adjacentChordConstraint = adjacentConstraint
@@ -35,16 +35,14 @@ public struct RecursiveSolver : SolverStrategy {
     }
 
     public func generate() -> GeneratorOf<[FourPartChord]> {
-        var arrays = enumerators.map {
-            Array($0).filter {
-                return self.chordConstraint($0)
-            }
+        var arrays = map(enumerators) {
+            filter($0, self.chordConstraint)
         }
         return GeneratorOf {
             if let array = arrays.first {
                 for el in array {
                     if let match = self.findMatch(el, restChords: rest(arrays)) {
-                        return match.map { $0.0 }
+                        return match
                     }
                 }
             } else {

@@ -60,23 +60,30 @@ class ViewController: UIViewController {
     }
 
     @IBAction func buttonTapped(sender: AnyObject) {
-        let key = Key(.C)
+        let key = Key(.C, minor: false)
 
-        let enumerators = [
+        var constraints: [ChordConstraint] = [
+            inversionConstraint(0),
+            inversionConstraint(2),
+            inversionConstraint(1),
+            inversionConstraint(0),
+            inversionConstraint(2),
+            inversionConstraint(0),
+            inversionConstraint(0)
+        ]
+
+        var enumerators = [
+            key.one,
+            key.five,
             key.one,
             key.four,
-            key.two,
-            key.five,
-            key.three,
-            key.six.minor,
-            key.two.add(6),
-            key.six.minor,
-            key.four.add(6),
-            key.four.add(6),
             key.one,
-            key.five,
+            key.five.seven,
             key.one
-        ].map { ChordEnumerator(chord: $0, randomize: true) }
+        ].map { ChordEnumerator(chord: $0, randomize: true) }.map { SequenceOf($0) }
+
+        // apply inversion constraints to all enumerators
+        enumerators = map(zip(enumerators, constraints)) { SequenceOf(filter($0, $1)) }
 
         var solver = RecursiveSolver(
             enumerators: enumerators,
@@ -85,11 +92,11 @@ class ViewController: UIViewController {
                 & completeChordConstraint
                 & tenorAltoIntervalConstraint(12)
                 & altoSopranoIntervalConstraint(12)
-                & bassTenorIntervalConstraint(19),
+                & bassTenorIntervalConstraint(20),
             adjacentConstraint:
-                not(parallelIntervalConstraint(7))
-                & not(parallelIntervalConstraint(5))
-                & smallJumpsConstraint(4)
+                  not(parallelIntervalConstraint(7)) // parallel 5ths
+                & not(parallelIntervalConstraint(5)) // parallel 4ths
+                & smallJumpsConstraint(7)
         )
 
         var generator = solver.generate()
@@ -98,8 +105,6 @@ class ViewController: UIViewController {
             let URL = NSBundle.mainBundle().URLForResource("correct-four-part", withExtension: "mid")!
             var error: NSError? = nil
             let sequence = MIKMIDISequence.fromProgression(solution)
-//            printSequence(sequence)
-            println(error)
             self.sequencer = MIKMIDISequencer(sequence: sequence)
             let soundFileURL = NSBundle.mainBundle().URLForResource("soundfont-stripped", withExtension: "sf2")!
             self.sequencer.builtinSynthesizer.loadSoundfontFromFileAtURL(soundFileURL, error: nil)
