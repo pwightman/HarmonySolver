@@ -8,9 +8,9 @@
 
 import Foundation
 
-public protocol SolverStrategy : SequenceType {
+public protocol SolverStrategy : Sequence {
     var enumerators: [ChordEnumerator] { get }
     var chordConstraint: ChordConstraint { get }
     var adjacentChordConstraint: AdjacentChordConstraint  { get }
-    init(enumerators: [ChordEnumerator], chordConstraint: ChordConstraint, adjacentConstraint: AdjacentChordConstraint)
+    init(enumerators: [ChordEnumerator], chordConstraint: @escaping ChordConstraint, adjacentConstraint: @escaping AdjacentChordConstraint)
 }

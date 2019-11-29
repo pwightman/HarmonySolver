@@ -8,18 +8,18 @@
 
 import Foundation
 
-public struct RecursiveSolver<S : SequenceType where S.Generator.Element == FourPartChord> : SequenceType {
+public struct RecursiveSolver<S : Sequence> : Sequence where S.Element == FourPartChord {
     public let enumerators: [S]
     public let chordConstraint: ChordConstraint
     public let adjacentChordConstraint: AdjacentChordConstraint
 
-    public init(enumerators: [S], chordConstraint: ChordConstraint, adjacentConstraint: AdjacentChordConstraint) {
+    public init(enumerators: [S], chordConstraint: @escaping ChordConstraint, adjacentConstraint: @escaping AdjacentChordConstraint) {
         self.enumerators = enumerators
         self.chordConstraint = chordConstraint
         self.adjacentChordConstraint = adjacentConstraint
     }
 
-    private func findMatch(var currentChord: FourPartChord, var restChords: [[FourPartChord]]) -> [FourPartChord]? {
+    private func findMatch(_ currentChord: FourPartChord, restChords: [[FourPartChord]]) -> [FourPartChord]? {
         if let chords = restChords.first {
             for chord in chords {
                 if self.adjacentChordConstraint(currentChord, chord),
@@ -33,12 +33,12 @@ public struct RecursiveSolver<S : SequenceType where S.Generator.Element == Four
         }
 
     }
-
-    public func generate() -> GeneratorOf<[FourPartChord]> {
-        var arrays = map(enumerators) {
-            filter($0, self.chordConstraint)
+    
+    public func makeIterator() -> AnyIterator<[FourPartChord]> {
+        let arrays = enumerators.map {
+            $0.filter(self.chordConstraint)
         }
-        return GeneratorOf {
+        return IteratorOf(block: {
             if let array = arrays.first {
                 for el in array {
                     if let match = self.findMatch(el, restChords: rest(arrays)) {
@@ -49,6 +49,6 @@ public struct RecursiveSolver<S : SequenceType where S.Generator.Element == Four
                 return nil
             }
             return nil
-        }
+        }).anyIterator()
     }
 }

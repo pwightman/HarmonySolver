@@ -9,29 +9,29 @@
 import Foundation
 
 func *(lhs: String, rhs: Int) -> String {
-    return reduce(1..<rhs, lhs) { s, e in return s + lhs }
+    return (1..<rhs).reduce(lhs) { s, e in return s + lhs }
 }
 
-public func &<T>(lhs: T -> Bool, rhs: T -> Bool) -> T -> Bool {
+public func &<T>(lhs: @escaping (T) -> Bool, rhs: @escaping (T) -> Bool) -> (T) -> Bool {
     return { t in return lhs(t) && rhs(t) }
 }
 
 extension Array {
-    func shuffled() -> [T] {
+    func shuffled() -> [Element] {
         var list = self
         for i in 0..<(list.count - 1) {
             let j = Int(arc4random_uniform(UInt32(list.count - i))) + i
-            swap(&list[i], &list[j])
+            list.swapAt(i, j)
         }
         return list
     }
 }
 
-func everyTwo<S : SequenceType>(sequence: S, block: (S.Generator.Element, S.Generator.Element) -> Bool) -> Bool {
-    var generator = sequence.generate()
+func everyTwo<S : Sequence>(_ sequence: S, block: (S.Element, S.Element) -> Bool) -> Bool {
+    var generator = sequence.makeIterator()
     var first = generator.next()
     var second = generator.next()
-    while let f = first, s = second {
+    while let f = first, let s = second {
         if !block(f, s) {
             return false
         }
@@ -41,7 +41,7 @@ func everyTwo<S : SequenceType>(sequence: S, block: (S.Generator.Element, S.Gene
     return true
 }
 
-func any<S : SequenceType>(sequence: S, block: S.Generator.Element -> Bool) -> Bool {
+func any<S : Sequence>(_ sequence: S, block: (S.Element) -> Bool) -> Bool {
     for el in sequence {
         if block(el) {
             return true
@@ -50,7 +50,7 @@ func any<S : SequenceType>(sequence: S, block: S.Generator.Element -> Bool) -> B
     return false
 }
 
-func all<S : SequenceType>(sequence: S, block: S.Generator.Element -> Bool) -> Bool {
+func all<S : Sequence>(_ sequence: S, block: (S.Element) -> Bool) -> Bool {
     for el in sequence {
         if !block(el) {
             return false
@@ -59,17 +59,18 @@ func all<S : SequenceType>(sequence: S, block: S.Generator.Element -> Bool) -> B
     return true
 }
 
-func rest<S : SequenceType>(sequence: S) -> [S.Generator.Element] {
-    var new: [S.Generator.Element] = []
-    var generator = sequence.generate()
-    generator.next()
+// TODO: replace usages with dropFirst()
+func rest<S : Sequence>(_ sequence: S) -> [S.Element] {
+    var new: [S.Element] = []
+    var generator = sequence.makeIterator()
+    _ = generator.next()
     while let el = generator.next() {
         new.append(el)
     }
     return new
 }
 
-func find<S : SequenceType>(sequence: S, block: S.Generator.Element -> Bool) -> S.Generator.Element? {
+func find<S : Sequence>(_ sequence: S, block: (S.Element) -> Bool) -> S.Element? {
     for el in sequence {
         if block(el) {
             return el

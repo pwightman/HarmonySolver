@@ -12,7 +12,7 @@ public func ==(lhs: Chord, rhs: Chord) -> Bool {
     return lhs.noteType == rhs.noteType && lhs.semitones == rhs.semitones
 }
 
-public struct Chord : Equatable, Printable, DebugPrintable {
+public struct Chord : Equatable {
     private let stepsToOffsets: [Int:Int] // Maps scale step to offset. [ 1 : 0, 3 : -1, 5 : 0 ] would be a minor chord
     public let noteType: NoteType
 
@@ -39,12 +39,12 @@ public struct Chord : Equatable, Printable, DebugPrintable {
     }
 
     public var semitones: [Int] {
-        return reduce(stepsToOffsets, []) { arr, pair in
+        return stepsToOffsets.reduce([]) { arr, pair in
             arr + [self.halfStepForScaleStep(pair.0) + pair.1]
         }.sorted { $0 < $1 }
     }
 
-    public func halfStepForScaleStep(scaleStep: Int) -> Int {
+    public func halfStepForScaleStep(_ scaleStep: Int) -> Int {
         switch (scaleStep) {
         case 1: return 0;
         case 2: return 2;
@@ -66,7 +66,7 @@ public struct Chord : Equatable, Printable, DebugPrintable {
         }
     }
 
-    private func chordBySetting(stepsToOffsets: [Int:Int]) -> Chord {
+    private func chordBySetting(_ stepsToOffsets: [Int:Int]) -> Chord {
         var newOffsets = self.stepsToOffsets
         for (step, offset) in stepsToOffsets {
             newOffsets[step] = offset
@@ -74,13 +74,13 @@ public struct Chord : Equatable, Printable, DebugPrintable {
         return Chord(self.noteType, stepsToOffsets: newOffsets)
     }
 
-    private func chordByRemoving(scaleStep: Int) -> Chord {
+    private func chordByRemoving(_ scaleStep: Int) -> Chord {
         var newOffsets = self.stepsToOffsets
-        newOffsets.removeValueForKey(scaleStep)
+        newOffsets.removeValue(forKey: scaleStep)
         return Chord(self.noteType, stepsToOffsets: newOffsets)
     }
 
-    public func transposedTo(noteType: NoteType) -> Chord {
+    public func transposedTo(_ noteType: NoteType) -> Chord {
         return Chord(noteType, stepsToOffsets: self.stepsToOffsets)
     }
 
@@ -112,23 +112,23 @@ public struct Chord : Equatable, Printable, DebugPrintable {
         return Chord(self.noteType).remove(3)
     }
 
-    public func flat(scaleStep: Int) -> Chord {
+    public func flat(_ scaleStep: Int) -> Chord {
         return self.chordBySetting([scaleStep : -1])
     }
 
-    public func doubleFlat(scaleStep: Int) -> Chord {
+    public func doubleFlat(_ scaleStep: Int) -> Chord {
         return self.chordBySetting([scaleStep : -2])
     }
 
-    public func sharp(scaleStep: Int) -> Chord {
+    public func sharp(_ scaleStep: Int) -> Chord {
         return self.chordBySetting([scaleStep : 1])
     }
 
-    public func add(scaleStep: Int) -> Chord {
+    public func add(_ scaleStep: Int) -> Chord {
         return self.chordBySetting([scaleStep : 0])
     }
 
-    public func remove(scaleStep: Int) -> Chord {
+    public func remove(_ scaleStep: Int) -> Chord {
         return self.chordByRemoving(scaleStep)
     }
 }

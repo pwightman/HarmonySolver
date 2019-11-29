@@ -67,12 +67,12 @@ public enum NoteType : Hashable {
         case .B: return 11
         }
     }
-
-    public var hashValue: Int {
-        return self.value.hashValue
+    
+    public func hash(into hasher: inout Hasher) {
+        hasher.combine(self.value)
     }
-
-    public func cycledBy(distance: Int) -> NoteType {
+    
+    public func cycledBy(_ distance: Int) -> NoteType {
         return NoteType(fromValue: self.value + distance)
     }
 }
@@ -85,7 +85,7 @@ public func <(lhs: Note, rhs: Note) -> Bool {
     return lhs.absoluteValue < rhs.absoluteValue
 }
 
-public struct Note : Hashable, Comparable, Printable, DebugPrintable {
+public struct Note : Hashable, Comparable {
     public let octave: Int
     public let noteType: NoteType
     public let absoluteValue: Int
@@ -131,8 +131,8 @@ public struct Note : Hashable, Comparable, Printable, DebugPrintable {
         case .B: return "B"
         }
     }
-
-    public var hashValue: Int {
-        return self.absoluteValue.hashValue
+    
+    public func hash(into hasher: inout Hasher) {
+        hasher.combine(self.absoluteValue)
     }
 }

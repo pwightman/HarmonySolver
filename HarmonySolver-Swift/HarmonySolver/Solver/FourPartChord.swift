@@ -12,7 +12,7 @@ public func ==(lhs: FourPartChord, rhs: FourPartChord) -> Bool {
     return lhs.chord == rhs.chord && lhs.values == rhs.values
 }
 
-public struct FourPartChord : Equatable, Printable, DebugPrintable {
+public struct FourPartChord : Equatable {
     public let chord: Chord
     public let bass: Note
     public let tenor: Note
@@ -39,7 +39,7 @@ public struct FourPartChord : Equatable, Printable, DebugPrintable {
         return self.description
     }
 
-    public func transposedTo(noteType: NoteType) -> FourPartChord {
+    public func transposedTo(_ noteType: NoteType) -> FourPartChord {
         let newValues = self.values.map { Note(absoluteValue: $0.absoluteValue - noteType.value) }
         return FourPartChord(
             chord: self.chord,

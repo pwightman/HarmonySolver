@@ -32,53 +32,71 @@ The following would print:
 [3, "b"]
 
 */
-struct PermutationGenerator<S : SequenceType> : GeneratorType {
+struct IteratorOf<E>: IteratorProtocol {
+    typealias Element = E
+    
+    let block: () -> E?
+    
+    mutating func next() -> E? {
+        return block()
+    }
+}
+
+extension IteratorProtocol {
+    func anyIterator() -> AnyIterator<Element> {
+        return AnyIterator(self)
+    }
+}
+
+struct PermutationGenerator<S : Sequence> : IteratorProtocol {
     private let sequences: [S]
-    private var generator: GeneratorOf<[S.Generator.Element]>?
+    private var generator: AnyIterator<[S.Element]>?
 
     init(sequences: [S]) {
         self.sequences = sequences
         switch sequences.count {
         case 0: self.generator = nil
         case 1:
-            var generator = sequences.first?.generate()
-            self.generator = GeneratorOf {
+            var generator = sequences.first?.makeIterator()
+            
+            self.generator = IteratorOf(block: {
                 if let el = generator?.next() {
                     return [el]
                 } else {
                     return nil
                 }
-            }
+            }).anyIterator()
         default:
             var restGenerator = PermutationGenerator(sequences: rest(self.sequences))
-            var firstGenerator = self.sequences[0].generate()
+            var firstGenerator = self.sequences[0].makeIterator()
             var currentRestElement = restGenerator.next()
             var currentFirstElement = firstGenerator.next()
-            self.generator = GeneratorOf {
+            let sequences = self.sequences
+            self.generator = IteratorOf(block: {
                 switch (currentFirstElement, currentRestElement) {
                 // While there are elements left in our single-element generator, iterate over it
-                case (.Some(let first), .Some(let rest)):
+                case (.some(let first), .some(let rest)):
                     currentFirstElement = firstGenerator.next()
                     return rest + [first]
                 // If we run out of single-element items, reset its generator and increment the
                 // `restGenerator`
-                case (.None, .Some(let rest)):
-                    firstGenerator = self.sequences.first!.generate()
+                case (.none, .some(_)):
+                    firstGenerator = sequences.first!.makeIterator()
                     currentRestElement = restGenerator.next()
-                    if let el = firstGenerator.next(), restEl = currentRestElement {
+                    if let el = firstGenerator.next(), let restEl = currentRestElement {
                         currentFirstElement = firstGenerator.next()
                         return restEl + [el]
                     } else {
                         return nil
                     }
                     // Once the rest generator, or both, have run out, there's no more permutations
-                case (.Some, .None), (.None, .None): return nil
+                case (.some(_), .none), (.none, .none): return nil
                 }
-            }
+            }).anyIterator()
         }
     }
 
-    mutating func next() -> [S.Generator.Element]? {
+    mutating func next() -> [S.Element]? {
         return generator?.next()
     }
 }

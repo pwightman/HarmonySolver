@@ -13,27 +13,27 @@ public struct PermutationSolver : SolverStrategy {
     public let chordConstraint: ChordConstraint
     public let adjacentChordConstraint: AdjacentChordConstraint
 
-    public init(enumerators: [ChordEnumerator], chordConstraint: ChordConstraint, adjacentConstraint: AdjacentChordConstraint) {
+    public init(enumerators: [ChordEnumerator], chordConstraint: @escaping ChordConstraint, adjacentConstraint: @escaping AdjacentChordConstraint) {
         self.enumerators = enumerators
         self.chordConstraint = chordConstraint
         self.adjacentChordConstraint = adjacentConstraint
     }
 
-    public func generate() -> GeneratorOf<[FourPartChord]> {
-        var arrays = enumerators.map {
+    public func makeIterator() -> AnyIterator<[FourPartChord]> {
+        let arrays = enumerators.map {
             Array($0).filter {
                 return self.chordConstraint($0)
             }
         }
-        var generator = PermutationGenerator(sequences: arrays.reverse())
-        return GeneratorOf {
+        var generator = PermutationGenerator(sequences: arrays.reversed())
+        return IteratorOf(block: {
             while let chords = generator.next() {
-                let adjacentPassed = everyTwo(SequenceOf(chords), self.adjacentChordConstraint)
+                let adjacentPassed = everyTwo(chords, block: self.adjacentChordConstraint)
                 if adjacentPassed {
                     return chords
                 }
             }
             return nil
-        }
+        }).anyIterator()
     }
 }

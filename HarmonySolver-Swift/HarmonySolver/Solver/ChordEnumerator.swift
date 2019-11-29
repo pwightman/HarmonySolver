@@ -14,7 +14,7 @@ public enum VoiceType {
 
 extension VoiceType {
 
-    func noteForChord(chord: FourPartChord) -> Note {
+    func noteForChord(_ chord: FourPartChord) -> Note {
         switch self {
         case .Bass: return chord.bass
         case .Tenor: return chord.tenor
@@ -25,18 +25,31 @@ extension VoiceType {
 
 }
 
-public func pinnedVoiceConstraint(voiceType: VoiceType, note: Note)(_ chord: FourPartChord) -> Bool {
-    if voiceType.noteForChord(chord) == note {
-        return true
+public func pinnedVoiceConstraint(voiceType: VoiceType, note: Note) -> ChordConstraint {
+    return { (chord: FourPartChord) -> Bool in
+        if voiceType.noteForChord(chord) == note {
+            return true
+        }
+        return false
+
     }
-    return false
 }
 
-public func inversionConstraint(inversion: Int)(_ chord: FourPartChord) -> Bool {
-    return NoteType(fromValue: chord.chord.semitones[inversion]).cycledBy(chord.chord.noteType.value) == chord.bass.noteType
+public func inversionConstraint(inversion: Int) -> ChordConstraint {
+    return { (chord: FourPartChord) -> Bool in
+        return NoteType(fromValue: chord.chord.semitones[inversion]).cycledBy(chord.chord.noteType.value) == chord.bass.noteType
+    }
 }
 
-public struct ChordEnumerator : SequenceType {
+public struct ChordIterator: IteratorProtocol {
+    let enumerator: ChordEnumerator
+    
+    public mutating func next() -> FourPartChord? {
+        return nil
+    }
+}
+
+public struct ChordEnumerator : Sequence {
     public let chord: Chord
     public let randomize: Bool
 
@@ -45,34 +58,37 @@ public struct ChordEnumerator : SequenceType {
         self.randomize = randomize
     }
 
-    func notesInRange(range: Range<Int>) -> [Note] {
+    func notesInRange(_ range: ClosedRange<Int>) -> [Note] {
         let set = Set(chord.semitones.map { (self.chord.noteType.value + $0) % 12 })
         return Array(range).filter { set.contains($0 % 12) }.map { Note(absoluteValue: $0) }
     }
 
-    var bassRange: Range<Int> {
+    var bassRange: ClosedRange<Int> {
         return Note(.E,3).absoluteValue...Note(.C,5).absoluteValue
     }
 
-    var tenorRange: Range<Int> {
+    var tenorRange: ClosedRange<Int> {
         return Note(.C,4).absoluteValue...Note(.G,5).absoluteValue
     }
 
-    var altoRange: Range<Int> {
+    var altoRange: ClosedRange<Int> {
         return Note(.G,4).absoluteValue...Note(.C,6).absoluteValue
     }
 
-    var sopranoRange: Range<Int> {
+    var sopranoRange: ClosedRange<Int> {
         return Note(.C,5).absoluteValue...Note(.G,6).absoluteValue
     }
+    
+//    public func makeIterator() -> ChordIterator {
+//        return ChordIterator(enumerator: self)
+//    }
 
-
-    public func generate() -> GeneratorOf<FourPartChord> {
+    public func makeIterator() -> AnyIterator<FourPartChord> {
         let bassNotes = notesInRange(bassRange)
         let tenorNotes = notesInRange(tenorRange)
         let altoNotes = notesInRange(altoRange)
         let sopranoNotes = notesInRange(sopranoRange)
-        let sequences = [bassNotes, tenorNotes, altoNotes, sopranoNotes].reverse().map { range -> [Note] in
+        let sequences = [bassNotes, tenorNotes, altoNotes, sopranoNotes].reversed().map { range -> [Note] in
             if self.randomize {
                 return range.shuffled()
             } else {
@@ -80,7 +96,7 @@ public struct ChordEnumerator : SequenceType {
             }
         }
         var generator = PermutationGenerator(sequences: sequences)
-        return GeneratorOf {
+        return IteratorOf(block: {
             if let notes = generator.next() {
                 return FourPartChord(
                     chord:   self.chord,
@@ -92,6 +108,6 @@ public struct ChordEnumerator : SequenceType {
             } else {
                 return nil
             }
-        }
+        }).anyIterator()
     }
 }

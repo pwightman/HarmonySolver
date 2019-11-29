@@ -21,7 +21,6 @@
 		5F5347161AA27CE1000CF01F /* PermutationGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F5347061AA27CE1000CF01F /* PermutationGenerator.swift */; };
 		5F5347171AA27CE1000CF01F /* PermutationSolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F5347071AA27CE1000CF01F /* PermutationSolver.swift */; };
 		5F5347181AA27CE1000CF01F /* RecursiveSolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F5347081AA27CE1000CF01F /* RecursiveSolver.swift */; };
-		5F5347191AA27CE1000CF01F /* Solver.h in Headers */ = {isa = PBXBuildFile; fileRef = 5F5347091AA27CE1000CF01F /* Solver.h */; };
 		5F53471A1AA27CE1000CF01F /* SolverStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F53470A1AA27CE1000CF01F /* SolverStrategy.swift */; };
 		5F53471B1AA27CE1000CF01F /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F53470B1AA27CE1000CF01F /* Util.swift */; };
 		5F53471F1AA28194000CF01F /* StaffView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F53471E1AA28194000CF01F /* StaffView.m */; };
@@ -324,7 +323,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				5FB7C59A1A9A3A63003C24B3 /* Solver.h in Headers */,
-				5F5347191AA27CE1000CF01F /* Solver.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -436,6 +434,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -627,9 +626,11 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = alorastudios.Solver;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
@@ -648,8 +649,10 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = alorastudios.Solver;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
@@ -786,6 +789,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "HarmonySolver/HarmonySolver-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -804,6 +808,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "HarmonySolver/HarmonySolver-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};

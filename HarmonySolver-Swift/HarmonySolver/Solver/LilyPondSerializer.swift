@@ -15,16 +15,16 @@ public class LilyPondSerializer {
     }
 
     public func toString() -> String {
-        let topNotes = join(" ", chords.map { "<\(self.lilyPondNoteForNote($0.alto)) \(self.lilyPondNoteForNote($0.soprano))>" })
-        let bottomNotes = join(" ", chords.map { "<\(self.lilyPondNoteForNote($0.bass)) \(self.lilyPondNoteForNote($0.tenor))>" })
-        let path = NSBundle(forClass: LilyPondSerializer.self).pathForResource("LilyPondTemplate", ofType: "ly")!
-        var template = String(contentsOfFile: path, encoding: NSUTF8StringEncoding, error: nil)!
-        template = (template as NSString).stringByReplacingOccurrencesOfString("{{treble}}", withString: topNotes)
-        template = (template as NSString).stringByReplacingOccurrencesOfString("{{bass}}", withString: bottomNotes)
+        let topNotes = chords.map { "<\(self.lilyPondNoteForNote($0.alto)) \(self.lilyPondNoteForNote($0.soprano))>" }.joined(separator: " ")
+        let bottomNotes = chords.map { "<\(self.lilyPondNoteForNote($0.bass)) \(self.lilyPondNoteForNote($0.tenor))>" }.joined(separator: " ")
+        let path = Bundle(for: LilyPondSerializer.self).path(forResource: "LilyPondTemplate", ofType: "ly")!
+        var template = try! String(contentsOfFile: path, encoding: .utf8)
+        template = (template as NSString).replacingOccurrences(of: "{{treble}}", with: topNotes)
+        template = (template as NSString).replacingOccurrences(of: "{{bass}}", with: bottomNotes)
         return template
     }
 
-    func lilyPondNoteForNote(note: Note) -> String {
+    func lilyPondNoteForNote(_ note: Note) -> String {
         let noteStr: String
         switch note.noteType {
         case .C: noteStr = "c"
@@ -43,7 +43,7 @@ public class LilyPondSerializer {
         return noteStr + self.octavesForNote(note)
     }
 
-    func octavesForNote(note: Note) -> String {
+    func octavesForNote(_ note: Note) -> String {
         let lpOctave = note.octave - 4
         var returnStr = ""
         if lpOctave > 0 {

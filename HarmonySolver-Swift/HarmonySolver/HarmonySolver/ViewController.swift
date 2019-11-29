@@ -7,36 +7,36 @@
 //
 
 import UIKit
-import MIKMIDI
+//import MIKMIDI
 import Solver
 
-extension MIKMIDISequence {
-    class func fromProgression(chords: [FourPartChord]) -> MIKMIDISequence {
-        let sopranoNotes = chords.map { $0.soprano }
-        let altoNotes = chords.map { $0.alto }
-        let tenorNotes = chords.map { $0.tenor }
-        let bassNotes = chords.map { $0.bass }
-
-        let sequence = MIKMIDISequence()
-        sequence.setOverallTempo(60)
-        sequence.setOverallTimeSignature(MIKMIDITimeSignatureMake(4, 4))
-
-        let track = sequence.addTrack()
-        let treble = zip(altoNotes, sopranoNotes)
-        let bass = zip(tenorNotes, bassNotes)
-        [treble, bass].map { staffVoices -> MIKMIDITrack in
-            let track = sequence.addTrack()
-            for pair in enumerate(staffVoices) {
-                [pair.element.0, pair.element.1].map { note -> MIKMIDINoteEvent in
-                    MIKMIDINoteEvent(timeStamp: MusicTimeStamp(pair.index), note: UInt8(note.absoluteValue), velocity: 90, duration: 1.0, channel: 0)
-                }.map(track.insertMIDIEvent)
-            }
-            return track
-        }
-
-        return sequence
-    }
-}
+//extension MIKMIDISequence {
+//    class func fromProgression(chords: [FourPartChord]) -> MIKMIDISequence {
+//        let sopranoNotes = chords.map { $0.soprano }
+//        let altoNotes = chords.map { $0.alto }
+//        let tenorNotes = chords.map { $0.tenor }
+//        let bassNotes = chords.map { $0.bass }
+//
+//        let sequence = MIKMIDISequence()
+//        sequence.setOverallTempo(60)
+//        sequence.setOverallTimeSignature(MIKMIDITimeSignatureMake(4, 4))
+//
+//        let track = sequence.addTrack()
+//        let treble = zip(altoNotes, sopranoNotes)
+//        let bass = zip(tenorNotes, bassNotes)
+//        [treble, bass].map { staffVoices -> MIKMIDITrack in
+//            let track = sequence.addTrack()
+//            for pair in enumerate(staffVoices) {
+//                [pair.element.0, pair.element.1].map { note -> MIKMIDINoteEvent in
+//                    MIKMIDINoteEvent(timeStamp: MusicTimeStamp(pair.index), note: UInt8(note.absoluteValue), velocity: 90, duration: 1.0, channel: 0)
+//                }.map(track.insertMIDIEvent)
+//            }
+//            return track
+//        }
+//
+//        return sequence
+//    }
+//}
 
 
 class ViewController: UIViewController {
@@ -48,16 +48,16 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
     }
 
-    func printSequence(sequence: MIKMIDISequence) {
-        func printTrack(track: MIKMIDITrack) {
-            println("Track \(track)")
-            for event in track.events! as! [MIKMIDIEvent] {
-                println(event)
-            }
-        }
-        let tracks = [sequence.tempoTrack] + sequence.tracks as! [MIKMIDITrack]
-        tracks.map(printTrack)
-    }
+//    func printSequence(sequence: MIKMIDISequence) {
+//        func printTrack(track: MIKMIDITrack) {
+//            println("Track \(track)")
+//            for event in track.events! as! [MIKMIDIEvent] {
+//                println(event)
+//            }
+//        }
+//        let tracks = [sequence.tempoTrack] + sequence.tracks as! [MIKMIDITrack]
+//        tracks.map(printTrack)
+//    }
 
     @IBAction func buttonTapped(sender: AnyObject) {
         let key = Key(.C, minor: false)
