@@ -23,7 +23,7 @@ public struct Chord : Equatable {
     public var debugDescription: String {
         return self.description
     }
-
+    
     public init(_ noteType: NoteType) {
         self.noteType = noteType
         self.stepsToOffsets = [ // Starts as major chord
@@ -37,7 +37,7 @@ public struct Chord : Equatable {
         self.noteType = noteType
         self.stepsToOffsets = stepsToOffsets
     }
-
+    
     public var semitones: [Int] {
         return stepsToOffsets.reduce([]) { arr, pair in
             arr + [self.halfStepForScaleStep(pair.0) + pair.1]
@@ -102,6 +102,10 @@ public struct Chord : Equatable {
 
     public var halfDiminished: Chord {
         return self.minor.flat(5).flat(7)
+    }
+    
+    public var augmented: Chord {
+        return self.sharp(5)
     }
 
     public var fullyDiminished: Chord {

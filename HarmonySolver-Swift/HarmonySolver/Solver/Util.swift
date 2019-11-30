@@ -12,8 +12,12 @@ func *(lhs: String, rhs: Int) -> String {
     return (1..<rhs).reduce(lhs) { s, e in return s + lhs }
 }
 
-public func &<T>(lhs: @escaping (T) -> Bool, rhs: @escaping (T) -> Bool) -> (T) -> Bool {
+public func &(lhs: @escaping ChordConstraint, rhs: @escaping ChordConstraint) -> ChordConstraint {
     return { t in return lhs(t) && rhs(t) }
+}
+
+public func &(lhs: @escaping AdjacentChordConstraint, rhs: @escaping AdjacentChordConstraint) -> AdjacentChordConstraint {
+    return { t, v in return lhs(t, v) && rhs(t, v) }
 }
 
 extension Array {

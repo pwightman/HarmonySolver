@@ -21,11 +21,11 @@ private let MajorKeyChords: [Chord] = [
 private let MinorKeyChords: [Chord] = [
     Chord(.C).minor,
     Chord(.D).halfDiminished,
-    Chord(.E),
+    Chord(.EFlat).augmented,
     Chord(.F).minor,
-    Chord(.G).minor,
-    Chord(.A),
-    Chord(.B)
+    Chord(.G),
+    Chord(.AFlat),
+    Chord(.B).fullyDiminished
 ]
 
 public struct Key {

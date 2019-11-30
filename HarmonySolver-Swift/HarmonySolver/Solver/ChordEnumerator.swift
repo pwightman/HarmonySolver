@@ -35,7 +35,7 @@ public func pinnedVoiceConstraint(voiceType: VoiceType, note: Note) -> ChordCons
     }
 }
 
-public func inversionConstraint(inversion: Int) -> ChordConstraint {
+public func inversionConstraint(_ inversion: Int) -> ChordConstraint {
     return { (chord: FourPartChord) -> Bool in
         return NoteType(fromValue: chord.chord.semitones[inversion]).cycledBy(chord.chord.noteType.value) == chord.bass.noteType
     }

@@ -12,11 +12,15 @@ import Foundation
 public typealias ChordConstraint = (FourPartChord) -> Bool
 public typealias AdjacentChordConstraint = (FourPartChord, FourPartChord) -> Bool
 
-public func not<T>(condition: @escaping (T) -> Bool) -> (T) -> Bool {
-    return { !condition($0) }
+public func not(_ constraint: @escaping ChordConstraint) -> ChordConstraint {
+    return { !constraint($0) }
 }
 
-public func parallelIntervalConstraint(interval: Int) -> AdjacentChordConstraint {
+public func not(_ constraint: @escaping AdjacentChordConstraint) -> AdjacentChordConstraint {
+    return { !constraint($0, $1) }
+}
+
+public func parallelIntervalConstraint(_ interval: Int) -> AdjacentChordConstraint {
     return { (first: FourPartChord, second: FourPartChord) -> Bool in
         return any(zip(first.values, second.values)) { pair in
             let difference = pair.1.absoluteValue - pair.0.absoluteValue
@@ -32,11 +36,35 @@ public func parallelIntervalConstraint(interval: Int) -> AdjacentChordConstraint
     }
 }
 
-public func smallJumpsConstraint(interval: Int) -> AdjacentChordConstraint {
+public func smallJumpsConstraint(_ interval: Int) -> AdjacentChordConstraint {
     return { (first: FourPartChord, second: FourPartChord) -> Bool in
         return all(zip(first.values, second.values)) { pair in
             return abs(pair.0.absoluteValue - pair.1.absoluteValue) <= interval
         }
+    }
+}
+
+public func smallJumpsAltoConstraint(_ interval: Int) -> AdjacentChordConstraint {
+    return { (first: FourPartChord, second: FourPartChord) -> Bool in
+        return abs(first.alto.absoluteValue - second.alto.absoluteValue) <= interval
+    }
+}
+
+public func adjacentVoiceCrossing() -> AdjacentChordConstraint {
+    return { (first: FourPartChord, second: FourPartChord) -> Bool in
+        return second.bass < first.tenor && second.tenor < first.alto && second.alto < first.soprano
+    }
+}
+
+public func descendingBass() -> AdjacentChordConstraint {
+    return { (first: FourPartChord, second: FourPartChord) -> Bool in
+        return second.bass < first.bass
+    }
+}
+
+public func ascendingSoprano() -> AdjacentChordConstraint {
+    return { (first: FourPartChord, second: FourPartChord) -> Bool in
+        return second.soprano > first.soprano
     }
 }
 

@@ -7,36 +7,37 @@
 //
 
 import UIKit
-//import MIKMIDI
+import MIKMIDI
 import Solver
 
-//extension MIKMIDISequence {
-//    class func fromProgression(chords: [FourPartChord]) -> MIKMIDISequence {
-//        let sopranoNotes = chords.map { $0.soprano }
-//        let altoNotes = chords.map { $0.alto }
-//        let tenorNotes = chords.map { $0.tenor }
-//        let bassNotes = chords.map { $0.bass }
-//
-//        let sequence = MIKMIDISequence()
-//        sequence.setOverallTempo(60)
-//        sequence.setOverallTimeSignature(MIKMIDITimeSignatureMake(4, 4))
-//
-//        let track = sequence.addTrack()
-//        let treble = zip(altoNotes, sopranoNotes)
-//        let bass = zip(tenorNotes, bassNotes)
-//        [treble, bass].map { staffVoices -> MIKMIDITrack in
-//            let track = sequence.addTrack()
-//            for pair in enumerate(staffVoices) {
-//                [pair.element.0, pair.element.1].map { note -> MIKMIDINoteEvent in
-//                    MIKMIDINoteEvent(timeStamp: MusicTimeStamp(pair.index), note: UInt8(note.absoluteValue), velocity: 90, duration: 1.0, channel: 0)
-//                }.map(track.insertMIDIEvent)
-//            }
-//            return track
-//        }
-//
-//        return sequence
-//    }
-//}
+extension MIKMIDISequence {
+    class func fromProgression(_ chords: [FourPartChord]) -> MIKMIDISequence {
+        let sopranoNotes = chords.map { $0.soprano }
+        let altoNotes = chords.map { $0.alto }
+        let tenorNotes = chords.map { $0.tenor }
+        let bassNotes = chords.map { $0.bass }
+
+        let sequence = MIKMIDISequence()
+        sequence.setOverallTempo(60)
+        sequence.setOverallTimeSignature(MIKMIDITimeSignatureMake(4, 4))
+
+        // TODO: Is this necessary?
+//        _ = sequence.addTrack()
+        let treble = zip(altoNotes, sopranoNotes)
+        let bass = zip(tenorNotes, bassNotes)
+        [treble, bass].forEach { staffVoices in
+            let track = sequence.addTrack()!
+            for pair in staffVoices.enumerated() {
+                [pair.element.0, pair.element.1].forEach { note in
+                    let event = MIKMIDINoteEvent(timeStamp: MusicTimeStamp(pair.offset), note: UInt8(note.absoluteValue), velocity: 90, duration: 1.0, channel: 0)
+                    track.insert(event)
+                }
+            }
+        }
+
+        return sequence
+    }
+}
 
 
 class ViewController: UIViewController {
@@ -60,9 +61,9 @@ class ViewController: UIViewController {
 //    }
 
     @IBAction func buttonTapped(sender: AnyObject) {
-        let key = Key(.C, minor: false)
+        let key = Key(.A, minor: true)
 
-        var constraints: [ChordConstraint] = [
+        let constraints: [ChordConstraint] = [
             inversionConstraint(0),
             inversionConstraint(2),
             inversionConstraint(1),
@@ -72,44 +73,52 @@ class ViewController: UIViewController {
             inversionConstraint(0)
         ]
 
-        var enumerators = [
-            key.one,
-            key.five,
+        let enumerators = [
             key.one,
             key.four,
+            key.five,
+            key.six,
             key.one,
-            key.five.seven,
-            key.one
-        ].map { ChordEnumerator(chord: $0, randomize: true) }.map { SequenceOf($0) }
+//            key.seven,
+//            key.three,
+//            key.two,
+//            key.five,
+//            key.one
+        ].map { ChordEnumerator(chord: $0, randomize: true) }
 
         // apply inversion constraints to all enumerators
-        enumerators = map(zip(enumerators, constraints)) { SequenceOf(filter($0, $1)) }
+        let filteredEnumerators =  zip(enumerators, constraints).map { $0.filter($1) }
+        
+        
 
-        var solver = RecursiveSolver(
+        let solver = RecursiveSolver(
             enumerators: enumerators,
             chordConstraint:
                   noVoiceCrossingConstraint
                 & completeChordConstraint
                 & tenorAltoIntervalConstraint(12)
                 & altoSopranoIntervalConstraint(12)
-                & bassTenorIntervalConstraint(20),
+                & bassTenorIntervalConstraint(12),
             adjacentConstraint:
                   not(parallelIntervalConstraint(7)) // parallel 5ths
                 & not(parallelIntervalConstraint(5)) // parallel 4ths
                 & smallJumpsConstraint(7)
+                & smallJumpsAltoConstraint(3)
+//                & descendingBass()
+//                & ascendingSoprano()
         )
 
-        var generator = solver.generate()
+        let generator = solver.makeIterator()
         if let solution = generator.next() {
-            println(LilyPondSerializer(chords: solution).toString())
-            let URL = NSBundle.mainBundle().URLForResource("correct-four-part", withExtension: "mid")!
-            var error: NSError? = nil
+            print(LilyPondSerializer(chords: solution).toString())
+//            let URL = Bundle.main.url(forResource: "correct-four-part", withExtension: "mid")!
             let sequence = MIKMIDISequence.fromProgression(solution)
             self.sequencer = MIKMIDISequencer(sequence: sequence)
-            let soundFileURL = NSBundle.mainBundle().URLForResource("soundfont-stripped", withExtension: "sf2")!
-            self.sequencer.builtinSynthesizer.loadSoundfontFromFileAtURL(soundFileURL, error: nil)
-            println(error)
+            let soundFileURL = Bundle.main.url(forResource: "soundfont-stripped", withExtension: "sf2")!
+            try! self.sequencer.builtinSynthesizer.loadSoundfontFromFile(at: soundFileURL)
             self.sequencer.startPlayback()
+        } else {
+            print("No solution")
         }
     }
 
