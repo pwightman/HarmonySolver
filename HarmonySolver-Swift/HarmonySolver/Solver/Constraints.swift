@@ -62,6 +62,12 @@ public func descendingBass() -> AdjacentChordConstraint {
     }
 }
 
+public func ascendingBass() -> AdjacentChordConstraint {
+    return { (first: FourPartChord, second: FourPartChord) -> Bool in
+        return first.bass < second.bass
+    }
+}
+
 public func ascendingSoprano() -> AdjacentChordConstraint {
     return { (first: FourPartChord, second: FourPartChord) -> Bool in
         return second.soprano > first.soprano
@@ -83,7 +89,7 @@ public func completeChordConstraint(chord: FourPartChord) -> Bool {
 public func allowRootNotes(intervals: [Int]) -> ChordConstraint {
     return { (chord: FourPartChord) -> Bool in
         return any(intervals) {
-            NoteType(fromValue: $0) == chord.transposedTo(.C).bass.noteType
+            NoteType(fromValue: $0) == chord.transposedTo(.c).bass.noteType
         }
     }
 }

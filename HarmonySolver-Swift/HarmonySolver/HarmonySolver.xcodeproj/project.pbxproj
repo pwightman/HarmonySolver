@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		5F056ED11A9A4F000049450A /* soundfont-stripped.sf2 in Resources */ = {isa = PBXBuildFile; fileRef = 5F056ED01A9A4EB50049450A /* soundfont-stripped.sf2 */; };
 		5F056ED41A9D5C090049450A /* correct-four-part.mid in Resources */ = {isa = PBXBuildFile; fileRef = 5F056ED31A9D5C090049450A /* correct-four-part.mid */; };
+		5F4E59032393499C0066C8A2 /* GrandPiano.sf2 in Resources */ = {isa = PBXBuildFile; fileRef = 5F4E58FF2393499B0066C8A2 /* GrandPiano.sf2 */; };
 		5F53470C1AA27CE1000CF01F /* Chord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F5346FC1AA27CE1000CF01F /* Chord.swift */; };
 		5F53470D1AA27CE1000CF01F /* ChordEnumerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F5346FD1AA27CE1000CF01F /* ChordEnumerator.swift */; };
 		5F53470E1AA27CE1000CF01F /* ChordProgression.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F5346FE1AA27CE1000CF01F /* ChordProgression.swift */; };
@@ -30,6 +31,9 @@
 		5FB7C5A91A9A3A63003C24B3 /* SolverTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB7C5A81A9A3A63003C24B3 /* SolverTests.swift */; };
 		5FB7C5AC1A9A3A63003C24B3 /* Solver.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FB7C5951A9A3A63003C24B3 /* Solver.framework */; };
 		5FB7C5AD1A9A3A63003C24B3 /* Solver.framework in Copy Files (1 item) */ = {isa = PBXBuildFile; fileRef = 5FB7C5951A9A3A63003C24B3 /* Solver.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		5FC018BF2394097A00FACD9E /* staff.html in Resources */ = {isa = PBXBuildFile; fileRef = 5FC018BE2394097A00FACD9E /* staff.html */; };
+		5FC018C123940A0900FACD9E /* vexflow.min.js in Resources */ = {isa = PBXBuildFile; fileRef = 5FC018C023940A0900FACD9E /* vexflow.min.js */; };
+		5FC018C323940B5100FACD9E /* app.js in Resources */ = {isa = PBXBuildFile; fileRef = 5FC018C223940B5100FACD9E /* app.js */; };
 		5FC9FE151A999766004094B0 /* test.midi in Resources */ = {isa = PBXBuildFile; fileRef = 5FC9FE141A999766004094B0 /* test.midi */; };
 		5FDA68591A89BC760053891B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FDA68581A89BC760053891B /* AppDelegate.swift */; };
 		5FDA685B1A89BC760053891B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FDA685A1A89BC760053891B /* ViewController.swift */; };
@@ -40,6 +44,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		5F4E59012393499B0066C8A2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5FB7C5831A99A74F003C24B3 /* MIKMIDI.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 9D4DF13A1AAB57430065F004;
+			remoteInfo = "MIKMIDI Tests";
+		};
 		5FB7C5881A99A74F003C24B3 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 5FB7C5831A99A74F003C24B3 /* MIKMIDI.xcodeproj */;
@@ -109,6 +120,7 @@
 /* Begin PBXFileReference section */
 		5F056ED01A9A4EB50049450A /* soundfont-stripped.sf2 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "soundfont-stripped.sf2"; sourceTree = "<group>"; };
 		5F056ED31A9D5C090049450A /* correct-four-part.mid */ = {isa = PBXFileReference; lastKnownFileType = audio.midi; path = "correct-four-part.mid"; sourceTree = "<group>"; };
+		5F4E58FF2393499B0066C8A2 /* GrandPiano.sf2 */ = {isa = PBXFileReference; lastKnownFileType = file; path = GrandPiano.sf2; sourceTree = "<group>"; };
 		5F5346FC1AA27CE1000CF01F /* Chord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Chord.swift; sourceTree = "<group>"; };
 		5F5346FD1AA27CE1000CF01F /* ChordEnumerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChordEnumerator.swift; sourceTree = "<group>"; };
 		5F5346FE1AA27CE1000CF01F /* ChordProgression.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChordProgression.swift; sourceTree = "<group>"; };
@@ -134,6 +146,9 @@
 		5FB7C59F1A9A3A63003C24B3 /* SolverTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SolverTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FB7C5A71A9A3A63003C24B3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5FB7C5A81A9A3A63003C24B3 /* SolverTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SolverTests.swift; sourceTree = "<group>"; };
+		5FC018BE2394097A00FACD9E /* staff.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = staff.html; sourceTree = "<group>"; };
+		5FC018C023940A0900FACD9E /* vexflow.min.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = vexflow.min.js; sourceTree = "<group>"; };
+		5FC018C223940B5100FACD9E /* app.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = app.js; sourceTree = "<group>"; };
 		5FC9FE141A999766004094B0 /* test.midi */ = {isa = PBXFileReference; lastKnownFileType = audio.midi; path = test.midi; sourceTree = "<group>"; };
 		5FDA68531A89BC760053891B /* HarmonySolver.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HarmonySolver.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FDA68571A89BC760053891B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -196,6 +211,7 @@
 			children = (
 				5FB7C5891A99A74F003C24B3 /* MIKMIDI.framework */,
 				5FB7C58B1A99A74F003C24B3 /* MIKMIDI.framework */,
+				5F4E59022393499B0066C8A2 /* MIKMIDI Tests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -248,6 +264,16 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		5FC018BD2394094400FACD9E /* VexFlow */ = {
+			isa = PBXGroup;
+			children = (
+				5FC018BE2394097A00FACD9E /* staff.html */,
+				5FC018C023940A0900FACD9E /* vexflow.min.js */,
+				5FC018C223940B5100FACD9E /* app.js */,
+			);
+			name = VexFlow;
+			sourceTree = "<group>";
+		};
 		5FDA684A1A89BC760053891B = {
 			isa = PBXGroup;
 			children = (
@@ -290,6 +316,8 @@
 		5FDA68561A89BC760053891B /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				5FC018BD2394094400FACD9E /* VexFlow */,
+				5F4E58FF2393499B0066C8A2 /* GrandPiano.sf2 */,
 				5F056ED01A9A4EB50049450A /* soundfont-stripped.sf2 */,
 				5FC9FE141A999766004094B0 /* test.midi */,
 				5F056ED31A9D5C090049450A /* correct-four-part.mid */,
@@ -458,6 +486,13 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
+		5F4E59022393499B0066C8A2 /* MIKMIDI Tests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "MIKMIDI Tests.xctest";
+			remoteRef = 5F4E59012393499B0066C8A2 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		5FB7C5891A99A74F003C24B3 /* MIKMIDI.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
@@ -494,12 +529,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5FC018C323940B5100FACD9E /* app.js in Resources */,
 				5F056ED11A9A4F000049450A /* soundfont-stripped.sf2 in Resources */,
+				5FC018BF2394097A00FACD9E /* staff.html in Resources */,
 				5FDA685E1A89BC760053891B /* Main.storyboard in Resources */,
 				5FDA68631A89BC760053891B /* LaunchScreen.xib in Resources */,
 				5FC9FE151A999766004094B0 /* test.midi in Resources */,
 				5F056ED41A9D5C090049450A /* correct-four-part.mid in Resources */,
 				5FDA68601A89BC760053891B /* Images.xcassets in Resources */,
+				5F4E59032393499C0066C8A2 /* GrandPiano.sf2 in Resources */,
+				5FC018C123940A0900FACD9E /* vexflow.min.js in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -813,7 +852,7 @@
 					"$(PROJECT_DIR)/MIKMIDI/Framework/build/Debug",
 				);
 				INFOPLIST_FILE = HarmonySolver/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "alorastudios.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -835,7 +874,7 @@
 					"$(PROJECT_DIR)/MIKMIDI/Framework/build/Debug",
 				);
 				INFOPLIST_FILE = HarmonySolver/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "alorastudios.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";

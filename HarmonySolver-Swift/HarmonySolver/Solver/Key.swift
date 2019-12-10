@@ -9,23 +9,23 @@
 import Foundation
 
 private let MajorKeyChords: [Chord] = [
-    Chord(.C),
-    Chord(.D).minor,
-    Chord(.E).minor,
-    Chord(.F),
-    Chord(.G),
-    Chord(.A).minor,
-    Chord(.B).halfDiminished
+    Chord(.c),
+    Chord(.d).minor,
+    Chord(.e).minor,
+    Chord(.f),
+    Chord(.g),
+    Chord(.a).minor,
+    Chord(.b).halfDiminished
 ]
 
 private let MinorKeyChords: [Chord] = [
-    Chord(.C).minor,
-    Chord(.D).halfDiminished,
-    Chord(.EFlat).augmented,
-    Chord(.F).minor,
-    Chord(.G),
-    Chord(.AFlat),
-    Chord(.B).fullyDiminished
+    Chord(.c).minor,
+    Chord(.d).halfDiminished,
+    Chord(.eFlat).augmented,
+    Chord(.f).minor,
+    Chord(.g),
+    Chord(.aFlat),
+    Chord(.b).fullyDiminished
 ]
 
 public struct Key {

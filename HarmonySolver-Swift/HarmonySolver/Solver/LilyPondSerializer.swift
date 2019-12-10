@@ -27,18 +27,18 @@ public class LilyPondSerializer {
     func lilyPondNoteForNote(_ note: Note) -> String {
         let noteStr: String
         switch note.noteType {
-        case .C: noteStr = "c"
-        case .CSharp, .DFlat: noteStr = "cis"
-        case .D: noteStr = "d"
-        case .DSharp, .EFlat: noteStr = "dis"
-        case .E: noteStr = "e"
-        case .F: noteStr = "f"
-        case .FSharp, .GFlat: noteStr = "fis"
-        case .G: noteStr = "g"
-        case .GSharp, .AFlat: noteStr = "gis"
-        case .A: noteStr = "a"
-        case .ASharp, .BFlat: noteStr = "ais"
-        case .B: noteStr = "b"
+        case .c: noteStr = "c"
+        case .cSharp, .dFlat: noteStr = "cis"
+        case .d: noteStr = "d"
+        case .dSharp, .eFlat: noteStr = "dis"
+        case .e: noteStr = "e"
+        case .f: noteStr = "f"
+        case .fSharp, .gFlat: noteStr = "fis"
+        case .g: noteStr = "g"
+        case .gSharp, .aFlat: noteStr = "gis"
+        case .a: noteStr = "a"
+        case .aSharp, .bFlat: noteStr = "ais"
+        case .b: noteStr = "b"
         }
         return noteStr + self.octavesForNote(note)
     }

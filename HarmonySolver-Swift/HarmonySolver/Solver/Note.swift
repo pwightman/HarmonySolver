@@ -15,56 +15,56 @@ public func ==(lhs: NoteType, rhs: NoteType) -> Bool {
 }
 
 public enum NoteType : Hashable {
-    case C
-    case CSharp
-    case DFlat
-    case D
-    case DSharp
-    case EFlat
-    case E
-    case F
-    case FSharp
-    case GFlat
-    case G
-    case GSharp
-    case AFlat
-    case A
-    case ASharp
-    case BFlat
-    case B
+    case c
+    case cSharp
+    case dFlat
+    case d
+    case dSharp
+    case eFlat
+    case e
+    case f
+    case fSharp
+    case gFlat
+    case g
+    case gSharp
+    case aFlat
+    case a
+    case aSharp
+    case bFlat
+    case b
 
     public init(fromValue value: Int) {
         switch value % 12 {
-        case 0: self = .C
-        case 1: self = .CSharp
-        case 2: self = .D
-        case 3: self = .DSharp
-        case 4: self = .E
-        case 5: self = .F
-        case 6: self = .FSharp
-        case 7: self = .G
-        case 8: self = .GSharp
-        case 9: self = .A
-        case 10: self = .ASharp
-        case 11: self = .B
-        default: self = .C
+        case 0: self = .c
+        case 1: self = .cSharp
+        case 2: self = .d
+        case 3: self = .dSharp
+        case 4: self = .e
+        case 5: self = .f
+        case 6: self = .fSharp
+        case 7: self = .g
+        case 8: self = .gSharp
+        case 9: self = .a
+        case 10: self = .aSharp
+        case 11: self = .b
+        default: self = .c
         }
     }
 
     public var value: Int {
         switch self {
-        case .C: return 0
-        case .CSharp, .DFlat: return 1
-        case .D: return 2
-        case .DSharp, .EFlat: return 3
-        case .E: return 4
-        case .F: return 5
-        case .FSharp, .GFlat: return 6
-        case .G: return 7
-        case .GSharp, .AFlat: return 8
-        case .A: return 9
-        case .ASharp, .BFlat: return 10
-        case .B: return 11
+        case .c: return 0
+        case .cSharp, .dFlat: return 1
+        case .d: return 2
+        case .dSharp, .eFlat: return 3
+        case .e: return 4
+        case .f: return 5
+        case .fSharp, .gFlat: return 6
+        case .g: return 7
+        case .gSharp, .aFlat: return 8
+        case .a: return 9
+        case .aSharp, .bFlat: return 10
+        case .b: return 11
         }
     }
     
@@ -112,23 +112,23 @@ public struct Note : Hashable, Comparable {
 
     public var stringForNoteType: String {
         switch noteType {
-        case .C: return "C"
-        case .CSharp: return "C#"
-        case .DFlat: return "Db"
-        case .D: return "D"
-        case .DSharp: return "D#"
-        case .EFlat: return "Eb"
-        case .E: return "E"
-        case .F: return "F"
-        case .FSharp: return "F#"
-        case .GFlat: return "Gb"
-        case .G: return "G"
-        case .GSharp: return "G#"
-        case .AFlat: return "Ab"
-        case .A: return "A"
-        case .ASharp: return "A#"
-        case .BFlat: return "Bb"
-        case .B: return "B"
+        case .c: return "C"
+        case .cSharp: return "C#"
+        case .dFlat: return "Db"
+        case .d: return "D"
+        case .dSharp: return "D#"
+        case .eFlat: return "Eb"
+        case .e: return "E"
+        case .f: return "F"
+        case .fSharp: return "F#"
+        case .gFlat: return "Gb"
+        case .g: return "G"
+        case .gSharp: return "G#"
+        case .aFlat: return "Ab"
+        case .a: return "A"
+        case .aSharp: return "A#"
+        case .bFlat: return "Bb"
+        case .b: return "B"
         }
     }
     

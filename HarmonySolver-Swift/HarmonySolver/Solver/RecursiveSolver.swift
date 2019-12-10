@@ -45,8 +45,6 @@ public struct RecursiveSolver<S : Sequence> : Sequence where S.Element == FourPa
                         return match
                     }
                 }
-            } else {
-                return nil
             }
             return nil
         }).anyIterator()

@@ -32,22 +32,32 @@
                                     <action selector="buttonTappedWithSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ppx-OK-EpR"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ciU-UO-bgl" customClass="StaffView">
-                                <rect key="frame" x="158" y="42" width="343" height="228"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </view>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RYF-kl-XmO">
+                                <rect key="frame" x="0.0" y="79" width="414" height="334"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="centerY" secondItem="y54-vj-NAI" secondAttribute="centerY" id="1Pw-2u-IWX"/>
+                            <constraint firstItem="RYF-kl-XmO" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="35" id="B1K-F4-ZIc"/>
+                            <constraint firstAttribute="trailing" secondItem="RYF-kl-XmO" secondAttribute="trailing" id="FrD-or-S8w"/>
+                            <constraint firstItem="RYF-kl-XmO" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="PjD-BB-fAR"/>
                             <constraint firstAttribute="centerX" secondItem="y54-vj-NAI" secondAttribute="centerX" id="gfw-9M-oj6"/>
+                            <constraint firstItem="y54-vj-NAI" firstAttribute="top" secondItem="RYF-kl-XmO" secondAttribute="bottom" constant="20" id="wF5-x3-QmE"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="webView" destination="RYF-kl-XmO" id="rr6-I1-0jR"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="34" y="31"/>
+            <point key="canvasLocation" x="33.333333333333336" y="30.803571428571427"/>
         </scene>
     </scenes>
 </document>

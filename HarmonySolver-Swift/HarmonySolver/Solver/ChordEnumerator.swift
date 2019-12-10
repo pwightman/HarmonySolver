@@ -64,19 +64,19 @@ public struct ChordEnumerator : Sequence {
     }
 
     var bassRange: ClosedRange<Int> {
-        return Note(.E,3).absoluteValue...Note(.C,5).absoluteValue
+        return Note(.e,3).absoluteValue...Note(.c,5).absoluteValue
     }
 
     var tenorRange: ClosedRange<Int> {
-        return Note(.C,4).absoluteValue...Note(.G,5).absoluteValue
+        return Note(.c,4).absoluteValue...Note(.g,5).absoluteValue
     }
 
     var altoRange: ClosedRange<Int> {
-        return Note(.G,4).absoluteValue...Note(.C,6).absoluteValue
+        return Note(.g,4).absoluteValue...Note(.c,6).absoluteValue
     }
 
     var sopranoRange: ClosedRange<Int> {
-        return Note(.C,5).absoluteValue...Note(.G,6).absoluteValue
+        return Note(.c,5).absoluteValue...Note(.g,6).absoluteValue
     }
     
 //    public func makeIterator() -> ChordIterator {

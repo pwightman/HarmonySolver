@@ -1,4 +1,4 @@
 [submodule "HarmonySolver-Swift/HarmonySolver/MIKMIDI"]
 	path = HarmonySolver-Swift/HarmonySolver/MIKMIDI
 	url = https://github.com/mixedinkey-opensource/MIKMIDI.git
-	branch = 1.1
+	branch = master
